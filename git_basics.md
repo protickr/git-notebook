@@ -14,4 +14,3 @@ Distributed version control system is different from Centralized version control
 *set global config: username and email*\
 `>> git config --global user.name <user_name>`\
 `>> git config --global user.email <email>`
-
