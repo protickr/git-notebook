@@ -8,9 +8,10 @@ Distributed version control system is different from Centralized version control
 
 # Primary git commands after installation
 
-`>> git --version`
+`>> git --version`\
 *shows git version*
 
-*set global config: username and email*
-`>> git config --global user.name <your user_name>`
-`>> git config --global user.email <your email>`
+*set global config: username and email*\
+`>> git config --global user.name <user_name>`\
+`>> git config --global user.email <email>`
+
