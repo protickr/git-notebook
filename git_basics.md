@@ -15,13 +15,13 @@ Distributed version control system is different from Centralized version control
 `>> git config --global user.name <user_name>`\
 `>> git config --global user.email <email>`
 
-*all configuraiton list*
-`>> git config --list`
+*all configuraiton list*\
+`>> git config --list`\
 
-*help/doc of any command*
-`>> git help <command_verb>`
-or
-`>> git <command_verb> --help`
+*help/doc of any command*\
+`>> git help <command_verb>`\
+or\
+`>> git <command_verb> --help`\
 
-*ignore files*
-add files and wild-card entries to .gitignore file, files listed in it will be ignored by git.
+*ignore files*\
+add files and wild-card entries to .gitignore file, files listed in it will be ignored by git.\
