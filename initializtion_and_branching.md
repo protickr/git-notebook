@@ -36,3 +36,6 @@ Upstream indicates where commits will be pushed
 
 *show branch from local*  
 `$ git branch`  
+
+*show branch tree*  
+`$ git log --graph`  
