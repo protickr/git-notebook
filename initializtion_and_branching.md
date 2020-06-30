@@ -9,7 +9,11 @@ the directory in which git is initialized is the same as the repository name if 
 this will add remote origin to url specified at origin_url  
 cloned repository from remote location automatically sets remote origin to git.  
 
-*set upstream branch at specified origin*  
+*set upstream branch*  
+`$ git branch --set-upstream-to=origin/<branch_name> <branch_name>`  
+`$ git branch -u origin <branch_name>`  
+
+*set upstream branch at specified origin at push event*  
 `$ git push --set-upstream <origin> <branch>`  
 `$ git push -u <origin> <branch>`  
 Upstream indicates where commits will be pushed
