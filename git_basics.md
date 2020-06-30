@@ -8,20 +8,20 @@ Distributed version control system is different from Centralized version control
 
 # Primary git commands after installation
 
-`>> git --version`\
+`$ git --version`\
 *shows git version*
 
 *set global config: username and email*\
-`>> git config --global user.name <user_name>`\
-`>> git config --global user.email <email>`
+`$ git config --global user.name <user_name>`\
+`$ git config --global user.email <email>`
 
 *all configuraiton list*\
-`>> git config --list`
+`$ git config --list`
 
 *help/doc of any command*\
-`>> git help <command_verb>`\
+`$ git help <command_verb>`\
 or\
-`>> git <command_verb> --help`
+`$ git <command_verb> --help`
 
 *ignore files*\
 add files and wild-card entries to .gitignore file, files listed in it will be ignored by git.
