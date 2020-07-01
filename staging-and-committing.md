@@ -1,6 +1,4 @@
-# Staging committing and pushing changes  
-
-\
+# Staging, committing and pushing changes  
 
 ## Tracking and Staging  
 
@@ -39,7 +37,6 @@ _improper way to stage_
 its imprecise and inconsistent accross multiple operating system and environments  
 so avoid using it.  
 
-\
 
 ## Committing to local branch
 
@@ -70,9 +67,9 @@ first take a pull then push
 
 \
 _show changes made between commits_  
->`$ git diff`  
+>`$ git diff <file_name>`  
 
-shows changes made between HEAD(latest commit and previous commit)  
+shows changes made to file since previous commit
 
 >`$ git diff commit_hash_1 commit_hash_2`  
 
