@@ -19,7 +19,7 @@ sets currently checked-out branch's upstream to remote_branch_name from origin
 
 \
 *set upstream branch at specified origin at push event*  
-*or push a branch to remote origin and set local branch's upstream*  
+*or push a local branch to remote origin and set local branch's upstream*  
 `$ git push --set-upstream-to=origin/remote_branch <local_branch>`  
 `$ git push -u <origin> <remote_branch>`  
 Upstream indicates where commits will be pushed
