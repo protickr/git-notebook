@@ -52,3 +52,14 @@ Upstream indicates where commits will be pushed
 \
 *show branch tree*  
 `$ git log --graph`  
+
+\
+_branch merging_  
+checkout branch where you intend to merge another branch  
+`$ git checkout master`  
+checked out to master branch  
+
+`$ git branch --merged`  
+lists branches that are merged to master  
+
+`$ git merge <source/feature_branch_name>`  
