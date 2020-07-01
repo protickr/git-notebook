@@ -17,11 +17,17 @@ cloned repository from remote location automatically sets remote origin to git.
 `$ git branch -u origin <remote_branch_name>`  
 sets currently checked-out branch's upstream to remote_branch_name from origin
 
+only works if upstream remote branch alread exists  
+if it doesn't we need to push that newly created local branch to remote by the following command,
+
 \
+
 *set upstream branch at specified origin at push event*  
 *or push a local branch to remote origin and set local branch's upstream*  
 `$ git push --set-upstream-to=origin/remote_branch <local_branch>`  
 `$ git push -u <origin> <remote_branch>`  
+or,  
+`$ git push origin HEAD`  
 Upstream indicates where commits will be pushed
 
 \
@@ -29,6 +35,9 @@ Upstream indicates where commits will be pushed
 `$ git remote -v`  
 `$ git remote -vv`  
 
+_to check upstream branch from any checked-out branch_  
+`$ git push -u`  
+  
 \
 *create a branch*  
 `$ git branch <branch_name>`  
