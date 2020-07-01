@@ -4,7 +4,7 @@
 `$ git init`  
 the directory in which git is initialized is the same as the repository name if cloned, [assumption]
 
-\  
+\
 *add remote origin to local repository*  
 `$ git remote add origin <origin_url>`  
 this will add remote origin to url specified at origin_url  
