@@ -22,7 +22,7 @@ _creates a new commit and does not re-writes git history_
 
 ## cherry pick commit to other branch
 > `$ git log`  
-find out commit hash of a commit to be cherry picked to other branch
+find out commit hash of a commit to be cherry picked to other branch  
 > `$ git checkout <target_branch>`  
 > `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
 
