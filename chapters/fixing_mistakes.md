@@ -40,14 +40,31 @@ there are 3 types of git reset
 ### soft reset
 
 no changes are lost, changes remain in staging area  
+> `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`  
 
 ### mixed/default reset
 
 no changes are lost, changes are unstaged  
+> `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`  
 
 ### hard reset
 
-changes are discarded, resets back to fresh  
+changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
+> `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`  
+
+removes all untracked directory and files  
+> `$ git clean -df`  
+
+## retrieve changes after a hard reset
+
+execute the following command and grab hash of commit that was discarded  
+> `$ git reflog`  
+
+then  
+>`$ git checkout <hash>`  
+
+this is not a branch, we are in a detached-head state, so we need to create a branch here,  
+> `$ git branch <new-commit-restored-branch>`  
 
 \
 [Index][index]
