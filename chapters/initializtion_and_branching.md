@@ -1,6 +1,7 @@
 # Initialization and Branching  
 
-*git initializtion at local directory*  
+*git initializtion at local directory*
+\
 > `$ git init`  
 the directory in which git is initialized is the same as the repository name if cloned, [assumption]
 
@@ -33,7 +34,7 @@ Upstream indicates where commits will be pushed
 *show information about remote*  
 > `$ git remote -v`  
 > `$ git remote -vv`  
-
+\
 _to check upstream branch from any checked-out branch_  
 > `$ git push -u`  
   

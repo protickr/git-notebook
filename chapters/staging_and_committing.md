@@ -1,8 +1,9 @@
 # Staging, committing and pushing changes  
 
-## Tracking and Staging  
+## Tracking and Staging
 
-_show modified flies and newly created files or directory_  
+\
+_show modified flies and newly created files or directory_
 
 > `$ git status`  
 
@@ -37,9 +38,9 @@ _improper way to stage_
 its imprecise and inconsistent accross multiple operating system and environments  
 so avoid using it.  
 
-
 ## Committing to local branch
 
+\
 _Commit staged changes_  
 >`$ git commit -m "commit message"`  
 

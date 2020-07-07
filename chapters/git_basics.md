@@ -8,16 +8,17 @@ Distributed version control system is different from Centralized version control
 
 # Primary git commands after installation
 
+\
 _shows git version_  
 >`$ git --version`  
-
+\
 _set global config: username and email_  
 >`$ git config --global user.name <user_name>`  
 >`$ git config --global user.email <email>`  
-
+\
 _all configuraiton list_  
 >`$ git config --list`  
-
+\
 _help/doc of any command_  
 >`$ git help <command_verb>`  
 
