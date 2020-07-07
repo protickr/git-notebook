@@ -27,3 +27,8 @@ or
 
 _ignore files_  
 add files and wild-card entries to .gitignore file, files listed in it will be ignored by git.  
+
+\
+[Index][index]
+
+[index]: ../index.md

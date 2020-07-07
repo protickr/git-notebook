@@ -76,3 +76,8 @@ checked out to master branch
 > `$ git branch --merged`  
 lists branches that are merged to master  
 > `$ git merge <source/feature_branch_name>`  
+
+\
+[Index][index]
+
+[index]: ../index.md

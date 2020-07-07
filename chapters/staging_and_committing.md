@@ -74,3 +74,8 @@ shows changes made to file since previous commit
 >`$ git diff commit_hash_1 commit_hash_2`  
 
 shows changes between commit_1 and commit_2  
+
+\
+[Index][index]
+
+[index]: ../index.md
