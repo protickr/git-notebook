@@ -28,7 +28,7 @@ if it doesn't we need to push that newly created local branch to remote by the f
 > `$ git push -u <origin> <remote_branch>`  
 or,  
 > `$ git push origin HEAD`  
-Upstream indicates where commits will be pushed
+Upstream indicates where commits will be pushed, [but there must be some commit before doing so]  
 
 \
 *show information about remote*  
