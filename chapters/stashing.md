@@ -41,3 +41,8 @@ _clear all stash_
 > `$ git stash clear`  
   
 deletes all stahes  
+
+\
+[Index][index]
+
+[index]: ../index.md
