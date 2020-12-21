@@ -1,14 +1,20 @@
-# Index
+# What is git
 
+git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.
+It generally keeps track of all the commits (snapshot or, a package of changes) that we made to a project and lets us traverse through them and also move backward or forward at will.
+
+Distributed version control system is different from Centralized version control system as DVCS allows user to have an updated copy of the whole repository and CVCS allows user to have only a version of the project.
+
+# Index
 * Basics
-    1. [After installation][after installation]
-    2. [Initialization And Branching][initialization and branching]
-    3. [Staging Changes and Committing][staging and committing]
+    1. [Installation and Configuration][configuration]
+    2. [Initialization Branching Merging][initialization branching merging]
+    3. [Staging Committing pushing][staging committing pushing]
     4. [Fixing Mistakes][fixing mistakes]
     5. [Stashing][stashing]
 
-[after installation]: ./chapters/git_basics.md
-[initialization and branching]: ./chapters/initializtion_and_branching.md
-[staging and committing]: ./chapters/staging_and_committing.md
+[configuration]: ./chapters/configuration.md
+[initialization branching merging]: ./chapters/initialization_branching_merging.md
+[staging committing pushing]: ./chapters/staging_committing_pushing.md
 [fixing mistakes]: ./chapters/fixing_mistakes.md
 [stashing]: ./chapters/stashing.md
