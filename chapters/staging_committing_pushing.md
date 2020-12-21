@@ -15,8 +15,11 @@
 > `$ git add -A`  
 or  
 > `$ git add --all`  
-> 
->adds files/folders to staging area from everywhere inside git initialized directory  
+>
+>adds files/folders to staging area from everywhere inside git initialized directory
+>
+> `$ git add -p`  
+> Add to staging area part by part. 
 
 
 >_add files to staging area from current directory and its subdirectories_ 

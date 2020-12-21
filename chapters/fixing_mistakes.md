@@ -49,10 +49,14 @@
 ### Hard reset
 
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
+> 
 > `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`  
 
->removes all untracked directory and files  
+> **removes all untracked directory and files**  
 > `$ git clean -df`  
+
+> *Remove from staging part by part*  
+> `$ git reset -p`  
 
 ## retrieve changes after a hard reset
 

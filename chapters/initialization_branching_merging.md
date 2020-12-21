@@ -69,7 +69,11 @@ checked out to master branch
 > or  
 >  `$ git merge --squash <source/feature_branch_name>`  
 > to squash commits from source branch into single commit  
-> 
+
+> git merge in one line  
+> `$ git merge master feature-branch`  
+> merges master with feature-branch
+
 > in case of conflict while merging use,  
 > `$ git mergetool`  
 > to resolve conflict graphically using mergetool.  
