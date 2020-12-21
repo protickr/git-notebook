@@ -69,14 +69,14 @@ Shows change between commit_1 and commit_2
 > as a tree  
 
 
-##Push commit to remote repo
+## Push commit to remote repo
 >first take a pull then push  
 >`$ git pull origin branch`  
 >`$ git push origin branch`  
 >or  
 > `$ git pull`  
 > `$ git push`  
-> if remote upstream branch is already set.
+> if remote upstream branch is already set or set upstream branch first.
 
 [Index][index]
 

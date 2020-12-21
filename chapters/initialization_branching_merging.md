@@ -61,12 +61,21 @@ _Branch merging_
 checkout branch where you intend to merge another branch  
 > `$ git checkout master`  
 checked out to master branch  
+> 
 > `$ git branch --merged`  
-lists branches that are merged to master  
+>lists branches that are merged to master  
+> 
 > `$ git merge <source/feature_branch_name>`  
+> or  
+>  `$ git merge --squash <source/feature_branch_name>`  
+> to squash commits from source branch into single commit  
+> 
 > in case of conflict while merging use,  
 > `$ git mergetool`  
-> to resolve conflict graphically using mergetool.
+> to resolve conflict graphically using mergetool.  
+> 
+> `$ git merge --abort`  
+> Or you can just simply abort the merge.  
 
 _Branch Deleting_  
 From local `$ git branch -d branch_name`  
