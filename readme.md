@@ -133,7 +133,7 @@ or,
 > `$ git log --graph`  
 > `git log --graph --pretty=oneline --abbrev-commit`
 
-_Branch merging_  
+**Branch merging**  
 checkout branch where you intend to merge another branch
 > `$ git checkout master`  
 checked out to master branch
@@ -159,7 +159,7 @@ checked out to master branch
 > Or you can just simply abort the merge.  
 > `$ git merge --abort`
 
-_Branch Deleting_  
+**Branch Deleting**  
 From local `$ git branch -d branch_name`  
 From remote `$ git push origin --delete branch_name`  
 
