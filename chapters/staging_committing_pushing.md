@@ -16,7 +16,7 @@
 or  
 > `$ git add --all`  
 >
->adds files/folders to staging area from everywhere inside git initialized directory
+>adds file/folder to staging area from everywhere inside git initialized directory
 >
 > `$ git add -p`  
 > Add to staging area part by part. 
@@ -75,6 +75,9 @@ Shows change between commit_1 and commit_2
 > `$ git log --all --oneline --decorate --graph`  
 > as a tree  
 
+**View a commit**
+> `$ git show <commit_hash>`  
+> `$ git show <commit_hash:directory/file>`  
 
 ## Push commit to remote repo
 >first take a pull then push  
