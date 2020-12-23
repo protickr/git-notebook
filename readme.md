@@ -148,7 +148,7 @@ checked out to master branch
 
 > Octopus merge  
 > `$ git merge master feature-branch`  
-> merges master with feature-branch and apply changes in currently checked out branch.  
+> merges master with feature-branch and apply merges with currently checked out branch.  
 
 > in case of conflict while merging use,  
 > `$ git mergetool`  
