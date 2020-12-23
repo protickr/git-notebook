@@ -5,14 +5,14 @@ Tried to document what I have learned through practice and tutorials.
 This is not an exhaustive list of commands or descriptions of version control systems.  
 
 
-# What is git
+## What is git
 
 Git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.
 It generally keeps track of all the commits (snapshot or, a package of changes) that we made to a project and lets us traverse through them and also move backward or forward at will.
 
 Distributed version control system is different from Centralized version control system as DVCS allows user to have an updated copy of the whole repository and CVCS allows user to have only a version of the project.
 
-# Git configuration
+## Git configuration
 
 \
 _**Retrieve installed git version**_
@@ -36,7 +36,7 @@ or
 (shows short help doc)
 >
 
-_**Ignore files**_  
+**Ignore files**  
 Add files, directories and wild-card entries to .gitignore file, files/directories listed in it will be ignored by git.
 
 _**Configure how git should handle end of line(EOL)**_  
@@ -74,7 +74,7 @@ If a conflict occurs during a merge it can be resolved graphically by,
 _**Colorful informative git**_
 >use posh-git for windows or zsh for unix  
 
-# Initialization and Branching
+## Initialization and Branching
 
 *git initialization at local directory*
 >go to the root of the project directory and,   
@@ -163,9 +163,9 @@ checked out to master branch
 From local `$ git branch -d branch_name`  
 From remote `$ git push origin --delete branch_name`  
 
-# Staging, committing and pushing changes
+## Staging Committing Pushing
 
-## Tracking and Staging
+### Tracking and Staging
 
 
 **show modified flies and newly created files or directory**
@@ -228,7 +228,7 @@ Show changes made to file since previous commit
 >`$ git diff commit_hash_1 commit_hash_2`  
 Shows change between commit_1 and commit_2
 
-## Committing to local branch
+### Committing to local branch
 
 **Commit staged changes**
 >`$ git commit -m "commit message"`
@@ -241,7 +241,7 @@ Shows change between commit_1 and commit_2
 > as a tree
 
 
-## Push commit to remote repo
+### Push commit to remote repo
 >first take a pull then push  
 >`$ git pull origin branch`  
 >`$ git push origin branch`  
@@ -251,7 +251,7 @@ Shows change between commit_1 and commit_2
 > if remote upstream branch is already set or set upstream branch first.  
 
 
-# How to fix mistakes
+## How to fix mistakes
 
 
 > Undo uncommitted changes that has been made to <a_file>  
@@ -260,8 +260,6 @@ Shows change between commit_1 and commit_2
 > Restore tracked but deleted folder  
 > `git reset -- path/to/folder`  
 > `git checkout -- path/to/folder`
-
-## Commit not pushed yet
 
 **re-writes git history**
 
@@ -274,28 +272,21 @@ Shows change between commit_1 and commit_2
 >`$ git add <file_name>`  
 > `$ git commit --amend`
 
-## Transfer commit to other branch
-
-> find out commit hash of a commit to be transferred to other branch  
-> `$ git log`  
-> `$ git checkout <target_branch>`  
-> `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`
-
-## Delete commit, git Reset
+### Git Reset
 
 **there are 3 types of git reset**
 
-### Soft reset
+#### Soft reset
 
 > no changes are lost, changes remain in staging area  
 > `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`
 
-### Mixed/default reset
+#### Mixed/default reset
 
 > no changes are lost, changes are unstaged  
 > `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`
 
-### Hard reset
+#### Hard reset
 
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh
 >
@@ -307,7 +298,7 @@ Shows change between commit_1 and commit_2
 > *Remove from staging part by part*  
 > `$ git reset -p`
 
-## retrieve changes after a hard reset
+### retrieve changes after a hard reset
 
 > Execute the following command and grab hash of commit that was discarded  
 > `$ git reflog`  
@@ -317,11 +308,11 @@ Shows change between commit_1 and commit_2
 > This is not a branch, we are in a detached-head state, so we need to create a branch here,  
 > `$ git branch <new-commit-restored-branch>`
 
-## Revert a pushed commit
+### Revert a pushed commit
 > `$ git revert <commit_hash_that_to_be_undone>`   
 > creates a new commit and does not re-write history
 
-## Remove or Rename files and directory
+### Remove or Rename files and directory
 > `$ git rm <path_to_file>`  
 > `$ git rm -r <path_to_directory>`  
 > removes file or directory from staging and working directory (/project)
@@ -331,15 +322,21 @@ Shows change between commit_1 and commit_2
 
 **Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**
 >`$ git rm --cached file.txt`  
->`$ git rm --cached -r bin/`
+>`$ git rm --cached -r bin/`  
+
+### Transfer commit to other branch
+
+> find out commit hash of a commit to be transferred to other branch  
+> `$ git log`  
+> `$ git checkout <target_branch>`  
+> `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`
+
 
 
 #### Never Ever edit or reset commit that has been already pushed.  
 
 
-# Stashing and Applying changes
-
-## Stashing
+## Stashing and Applying changes
 
 stash is available globally in all branches
 >_stashing changes_  
@@ -384,7 +381,7 @@ Generally when we create a new branch from another the new branch has all the up
    > alternatively you can abort the rebase operation by  
    > `$ git rebase --abort`
 
-### Rebase
+#### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
 #### Best practice:
@@ -421,13 +418,13 @@ Then, you can fast-forward the base branch (master):
 > `$ git pull --rebase`  
 > in case of a rebase disaster.
 
-###### Fast Forward Merge
+##### Fast Forward Merge
 
 If it detects that your current HEAD is an ancestor of the commit you're trying to merge. A fast-forward is when, instead of constructing a merge commit, git just moves your branch pointer to point at the incoming commit. This commonly occurs when doing a git pull without any local changes. [source](https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff)
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
-# Interactive Rebase
+## Interactive Rebase
 "Git interactive rebase" is completely different from "Git rebase". Interactive rebase allows user to change commit message (reword), delete commits (drop), combines commits into 1 (fixup/squash), reorder commits (By reordering them in Interactive window), splitting commits by providing an interactive window.
 
 "Git rebase" re-bases one branch onto another.
@@ -516,7 +513,7 @@ other projects easily, use submodules**
 > `$ git submodule update --init --recursive`  
 
 
-# ReReRe Reuse Recorded Resolution
+## ReReRe Reuse Recorded Resolution
 
 It is a merge conflict resolving automation feature offered by Git, to resolve same merge conflict that occurs multiple times we can record conflict resolving steps and reuse them again.
 
