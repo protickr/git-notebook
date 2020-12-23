@@ -1,4 +1,4 @@
-# git notebook to future-self
+# GIT Notebook
 
 Result of personal practice on Git to understand and experience it hands-on, using a terminal.  
 Tried to document what I have learned through practice and tutorials.  
