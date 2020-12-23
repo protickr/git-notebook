@@ -274,10 +274,6 @@ Shows change between commit_1 and commit_2
 >`$ git add <file_name>`  
 > `$ git commit --amend`
 
-## Revert a Pushed commit
-> creates a new commit and does not re-writes git history  
-> `$ git revert "commit_hash_that_need_to_be_reverted"`
-
 ## Transfer commit to other branch
 
 > find out commit hash of a commit to be transferred to other branch  
