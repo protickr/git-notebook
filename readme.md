@@ -141,14 +141,14 @@ checked out to master branch
 > `$ git branch --merged`  
 >lists branches that are merged to master
 >
-> `$ git merge <source/feature_branch_name>`  
+> `$ git merge <feature_branch_name>`  
 > or  
 >  `$ git merge --squash <source/feature_branch_name>`  
 > to squash commits from source branch into single commit
 
-> git merge in one line  
+> Octopus merge  
 > `$ git merge master feature-branch`  
-> merges master with feature-branch
+> merges master with feature-branch and apply changes in currently checked out branch.  
 
 > in case of conflict while merging use,  
 > `$ git mergetool`  
