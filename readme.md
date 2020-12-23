@@ -112,10 +112,10 @@ _To check upstream branch from any checked-out branch_
 > `$ git branch <branch_name>`
 
 *Create a branch from other branch*
-> `$ git checkout -b <target_branch> <branch_name>`  
+> `$ git checkout -b <source_branch> <branch_name>`  
 or,  
 > `git checkout <source_branch>`  
-> `git branch <new_target_branch>`
+> `git branch <new_branch>`
 
 *Switch to a barnch*
 > `$ git checkout <branch_name>`
