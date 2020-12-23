@@ -542,4 +542,4 @@ It is a merge conflict resolving automation feature offered by Git, to resolve s
 
 [Index][index]
 
-[index]: ../index.md
+[index]: index.md
