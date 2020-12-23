@@ -233,6 +233,11 @@ Shows change between commit_1 and commit_2
 **Commit staged changes**
 >`$ git commit -m "commit message"`
 
+**View a commit**
+> `$ git show <commit_hash>`  
+> `$ git show <commit_hash:directory/file>`
+
+
 **show git commit log**
 > `$ git log`  
 > `$ git log --stat`    
@@ -291,6 +296,18 @@ Shows change between commit_1 and commit_2
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh
 >
 > `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`
+
+### Git Restore
+> Restores file in working tree and index
+>
+> `$ git restore --staged file1 file2 *.extension .`  
+> restores/removes files from index/staging to working tree/directory
+>
+> `$ git restore file1 file2 *.extension .`  
+>  restores/removes changes from working tree/directory
+>
+> `$ git restore --source <commit_hash> files .`  
+> restores file from commit with provided commit_hash as source
 
 > **removes all untracked directory and files**  
 > `$ git clean -df`
