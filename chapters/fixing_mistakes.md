@@ -68,6 +68,10 @@
 > This is not a branch, we are in a detached-head state, so we need to create a branch here,  
 > `$ git branch <new-commit-restored-branch>`  
 
+## Revert a pushed commit
+> `$ git revert <commit_hash_that_to_be_undone>`   
+> creates a new commit and does not re-write history  
+
 ## Remove or Rename files and directory  
 > `$ git rm <path_to_file>`  
 > `$ git rm -r <path_to_directory>`  
@@ -79,6 +83,9 @@
 **Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**
 >`$ git rm --cached file.txt`  
 >`$ git rm --cached -r bin/`  
+
+
+#### Never Ever edit or reset commit that has been already pushed.  
 
 [Index][index]
 

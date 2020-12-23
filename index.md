@@ -17,7 +17,10 @@ Distributed version control system is different from Centralized version control
     1. [Rebase][rebase]
     2. [Bisect][bisect]
     3. [Submodules][sub-modules]
-  
+    4. [Rerere][rerere]
+    
+[Single Page](readme.md)  
+
 [configuration]: ./chapters/configuration.md
 [initialization branching merging]: ./chapters/initialization_branching_merging.md
 [staging committing pushing]: ./chapters/staging_committing_pushing.md
@@ -27,3 +30,5 @@ Distributed version control system is different from Centralized version control
 [rebase]: ./chapters/rebase.md
 [bisect]: ./chapters/bisect.md
 [sub-modules]: ./chapters/sub_modules.md
+[rerere]: ./chapters/rerere.md  
+

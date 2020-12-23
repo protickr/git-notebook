@@ -77,9 +77,11 @@ checked out to master branch
 > in case of conflict while merging use,  
 > `$ git mergetool`  
 > to resolve conflict graphically using mergetool.  
-> 
-> `$ git merge --abort`  
+> then  
+> `$ git merge --continue`
+>
 > Or you can just simply abort the merge.  
+> `$ git merge --abort`  
 
 _Branch Deleting_  
 From local `$ git branch -d branch_name`  

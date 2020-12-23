@@ -61,3 +61,6 @@ If it detects that your current HEAD is an ancestor of the commit you're trying 
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
+[Index][index]
+
+[index]: ../index.md

@@ -44,16 +44,19 @@ so avoid using it.
 
 **show changes made**
 >`$ git diff`  
-> Difference between  
-> working directory vs staging  
+> Difference between working directory vs staging.  
+> Shows changes that are not staged. Will not show newly added files or untracked files.   
 > 
 > `$ git diff --staged`  
-Review staged changes since previous commit.  
->Staged vs last_commit   
-> 
+> Difference between Staged vs last_commit   
+> Review staged changes.  
+>
+>`$ git diff HEAD`  
+Shows incoming changes to parent, in this case HEAD, both staged and untracked changes.  
+>
 > `$ git diff branch_name`  
 Changes made to a branch
-> 
+>
 >`$ git diff <file_name>`  
 Show changes made to file since previous commit  
 > 
@@ -66,7 +69,8 @@ Shows change between commit_1 and commit_2
 >`$ git commit -m "commit message"`  
 
 **show git commit log**
->`$ git log`  
+> `$ git log`  
+> `$ git log --stat`    
 > `$ git log --graph`  
 > `$ git log --all --oneline --decorate --graph`  
 > as a tree  

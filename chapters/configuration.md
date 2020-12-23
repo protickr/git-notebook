@@ -10,8 +10,8 @@ _**Set git author's username and email**_
 
 _**all configuration list**_  
 >`$ git config --list`  
->`$ git config --global --list`  
 >`$ git config --local --list`  
+>`$ git config --global --list`  
 
 
 _**help/doc of any command**_  
