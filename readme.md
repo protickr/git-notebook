@@ -399,7 +399,14 @@ Generally when we create a new branch from another the new branch has all the up
    >  
    > alternatively you can abort the rebase operation by  
    > `$ git rebase --abort`  
-
+   > 
+4. Undo a rebase operation by,
+   > Actually, rebase saves your starting point to ORIG_HEAD so this is usually as simple as:  
+   > `$ git reset --hard ORIG_HEAD`  
+   > However, the reset, rebase and merge all save your original HEAD pointer into ORIG_HEAD 
+   > so, if you've done any of those commands since the rebase you're trying to undo then you'll have to use the reflog.  
+   > [source](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)  
+   
 #### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
