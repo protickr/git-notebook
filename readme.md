@@ -406,6 +406,7 @@ Generally when we create a new branch from another the new branch has all the up
    > However, the reset, rebase and merge all save your original HEAD pointer into ORIG_HEAD 
    > so, if you've done any of those commands since the rebase you're trying to undo then you'll have to use the reflog.  
    > [source](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)  
+
    
 #### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
@@ -418,6 +419,12 @@ This operation works by going to the common ancestor of the two branches (the on
 
 #### DO NOT:
 1. DO NOT Rebase if your commits have already been pushed and someone else has based their work off of yours.
+
+#### Rebase pushed branch 
+**Do this only when you are the only person working on this branch**
+1. Rebase your local topic branch on top of your desired local branch  
+2. Then force push the local branch (override remote topic branch with local topic branch).  
+   > `$ git push --force origin feature-branch`  
 
 #### Advanced Rebasing:
 You can also have your rebase replay on something other than the rebase target branch. Take a history like A history with a topic branch off another topic branch, for example. You branched a topic branch (server) to add some server-side functionality to your project, and made a commit. Then, you branched off that to make the client-side changes (client) and committed a few times. Finally, you went back to your server branch and did a few more commits.  
