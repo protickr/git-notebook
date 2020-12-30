@@ -297,7 +297,14 @@ Shows change between commit_1 and commit_2
 
 > `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
-  
+
+#### Remove file/directory from staging area using git reset
+> `$ git reset file.txt`  
+> `$ git reset HEAD -- file.txt`  
+> `$ git reset HEAD -- directory`  
+
+#### Remove chunk of change from staging area  
+> `$ git reset -p`  
 
 ### Git Restore
 > Restores file in working tree and index
@@ -425,7 +432,11 @@ This operation works by going to the common ancestor of the two branches (the on
 1. Rebase your local topic branch on top of your desired local branch  
 2. Then force push the local branch (override remote topic branch with local topic branch).  
    > `$ git push --force origin feature-branch`  
-
+   > or  
+   > `$ git push --force-with-lease`  
+   > It is a safer option that checks for any incoming changes from remote which conflicts with local that you are not  
+   > aware of. Does not overwrite teammates code.  
+   
 #### Advanced Rebasing:
 You can also have your rebase replay on something other than the rebase target branch. Take a history like A history with a topic branch off another topic branch, for example. You branched a topic branch (server) to add some server-side functionality to your project, and made a commit. Then, you branched off that to make the client-side changes (client) and committed a few times. Finally, you went back to your server branch and did a few more commits.  
 Suppose you decide that you want to merge your client-side changes into your mainline for a release, but you want to hold off on the server-side changes until it’s tested further. You can take the changes on client that aren’t on server (C8 and C9) and replay them on your master branch by using the --onto option of git rebase:
