@@ -14,8 +14,8 @@ The Distributed version control system is different from The Centralized version
 
 ### GIT structure  
 There are three distinct compartments that are used by GIT to operate i.e.,  
-_**Working Directory / Tree**_ > ( `$ git add` )> _**Staging Area / Index**_ > ( `$ git commit -m "msg"` ) >  
-_**Repository**_ > (`$ git push` ) > _**Remote Repository**_  
+_**Working Directory / Tree**_ > ( `$ git add` )> _**Staging Area / Index**_ >  
+( `$ git commit -m "msg"` ) > _**Repository**_ > (`$ git push` ) > _**Remote Repository**_  
 Repository always has a commit hash that points to latest commit which is labeled as HEAD  
 But working directory and staging area do not,  
 Instead staging area keeps a virtual reference to latest commit or HEAD. 
