@@ -436,16 +436,16 @@ Generally when we create a new branch from another the new branch has all the up
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
 #### Best practice:
-1. Rebase your local branch onto origin/source_branch
-2. Fix all conflicts if any.
-3. Create a Pull request and ask for testing.
-4. Do a --ff merge with origin/source_branch.
-
+1. Rebase your local branch onto origin/source_branch  
+2. Fix all conflicts if any.  
+3. Create a Pull request and ask for testing.  
+4. Do a --ff merge with origin/source_branch.  
+  
 #### DO NOT:
-1. DO NOT Rebase if your commits have already been pushed and someone else has based their work off of yours.
-
-#### Rebase pushed branch 
-**Do this only when you are the only person working on this branch**
+1. DO NOT Rebase if your commits have already been pushed and someone else has based their work off of yours.  
+  
+#### Rebase pushed branch  
+**Do this only when you are the only person working on this branch**  
 1. Rebase your local topic branch on top of your desired local branch  
 2. Then force push the local branch (override remote topic branch with local topic branch).  
    > `$ git push --force origin feature-branch`  
@@ -456,32 +456,32 @@ This operation works by going to the common ancestor of the two branches (the on
    
 #### Advanced Rebasing:
 You can also have your rebase replay on something other than the rebase target branch. Take a history like A history with a topic branch off another topic branch, for example. You branched a topic branch (server) to add some server-side functionality to your project, and made a commit. Then, you branched off that to make the client-side changes (client) and committed a few times. Finally, you went back to your server branch and did a few more commits.  
-Suppose you decide that you want to merge your client-side changes into your mainline for a release, but you want to hold off on the server-side changes until it’s tested further. You can take the changes on client that aren’t on server (C8 and C9) and replay them on your master branch by using the --onto option of git rebase:
-> `$ git rebase --onto master server client`
-
+Suppose you decide that you want to merge your client-side changes into your mainline for a release, but you want to hold off on the server-side changes until it’s tested further. You can take the changes on client that aren’t on server (C8 and C9) and replay them on your master branch by using the --onto option of git rebase:  
+> `$ git rebase --onto master server client`  
+  
 This basically says, “Take the client branch, figure out the patches since it diverged from the server branch, and replay these patches in the client branch as if it was based directly off the master branch instead.” It’s a bit complex, but the result is pretty cool.  
-Now you can fast-forward your master branch (see Fast-forwarding your master branch to include the client branch changes):
-
+Now you can fast-forward your master branch (see Fast-forwarding your master branch to include the client branch changes):  
+  
 > `$ git checkout master`  
-> `$ git merge client`
-
+> `$ git merge client`  
+  
 Let’s say you decide to pull in your server branch as well. You can rebase the server branch onto the master branch without having to check it out first by running git rebase <basebranch> <topicbranch> which checks out the topic branch (in this case, server) for you and replays it onto the base branch (master):
-
-> `$ git rebase master server`
-
+  
+> `$ git rebase master server`  
+  
 This replays your server work on top of your master work, as shown in Rebasing your server branch on top of your master branch.
 Then, you can fast-forward the base branch (master):
-
+  
 > `$ git checkout master`  
 > `$ git merge server`  
-[source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
-
+[source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)  
+  
 > `$ git pull --rebase`  
-> in case of a rebase disaster.
+> in case of a rebase disaster.  
+  
+##### Fast Forward Merge  
 
-##### Fast Forward Merge
-
-If it detects that your current HEAD is an ancestor of the commit you're trying to merge. A fast-forward is when, instead of constructing a merge commit, git just moves your branch pointer to point at the incoming commit. This commonly occurs when doing a git pull without any local changes. [source](https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff)
+If it detects that your current HEAD is an ancestor of the commit you're trying to merge. A fast-forward is when, instead of constructing a merge commit, git just moves your branch pointer to point at the incoming commit. This commonly occurs when doing a git pull without any local changes. [source](https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff)  
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
@@ -492,26 +492,26 @@ If you want to preserve branch topology and merge history you should pass in --n
 
 **Select commits for interactive rebase**
 > `$ git rebase -i HEAD~n`  
-> (operates on n commits from head to latest n commits; n = 1,2,3...)
-> - in the interactive mode, choose preferred operation for a commit by typing keyword beside that individual commit e.g.,
-> - "reword" to change commit message
+> (operates on n commits from head to latest n commits; n = 1,2,3...)  
+> - in the interactive mode, choose preferred operation for a commit by typing keyword beside that individual commit e.g.,  
+> - "reword" to change commit message  
+>  
+> - "drop" to delete a commit  
+>  
+> - "fixup/squash" to squash a number of commits into single commit. Squashes all commits marked with squash or fixup keyword into the latest commit.  
 >
-> - "drop" to delete a commit
->
-> - "fixup/squash" to squash a number of commits into single commit. Squashes all commits marked with squash or fixup keyword into the latest commit.
->
-> - "Reorder" commit entries to "reorder" them.
+> - "Reorder" commit entries to "reorder" them.  
 > 
 > _Splitting a commit:_  
 > - "edit" to go to an "interactive branch" and operate on it;  
     `$ git reset HEAD^`  
-    modify, stage and commit them into different commits to "split" single commits into multiple. Then,
+    modify, stage and commit them into different commits to "split" single commits into multiple. Then,  
     `$ git rebase --continue`  
     to transfer those new commits to original branch from the intermediate interactive branch.  
->
-
+>  
+  
 ## Git Bisect
-git-bisect - Use binary search to find a commit that introduced a bug
+git-bisect - Use binary search to find a commit that introduced a bug  
 
 
 > `$ git bisect start`  
@@ -540,29 +540,29 @@ git-bisect - Use binary search to find a commit that introduced a bug
 
 
 ## Git Submodules
-
+ 
 It is a way to use another module (source controlled project i.e., repository) within a parent project  
 The benefit of using another repository as your dependency library is, you can always get the latest update  
-without getting into useless hassles such as, copying the new source code again and again.
-Making any changes to that submodule will be available to all other parent projects who are using it.
-
-**When you do not want your library to be available publicly but also need it to be source-controlled and used within
+without getting into useless hassles such as, copying the new source code again and again.  
+Making any changes to that submodule will be available to all other parent projects who are using it.  
+  
+**When you do not want your library to be available publicly but also need it to be source-controlled and used within  
 other projects easily, use submodules**  
-
+  
 >_Add submodules to your main project_  
 > `$ git submodule add <submodule_source> <directory_name>`      
-> previous command must be run from root of parent project directory.
->
+> previous command must be run from root of parent project directory.  
+>  
 > then in the parent project directory run the following,  
-> `$ git commit -m "added a submodules called "`
->
-> from within the submodule's directory modify your library and commit and push changes from there
->
+> `$ git commit -m "added a submodules called "`  
+>  
+> from within the submodule's directory modify your library and commit and push changes from there  
+>  
 > Now from the parent directory run the following command to get the changes in submodule,  
-> `$ git submodule update`
->
-
-**If you clone a project that has submodule dependency in it, run the following**
+> `$ git submodule update`  
+>  
+  
+**If you clone a project that has submodule dependency in it, run the following**  
 > `$ git submodule init` (to initialize submodule)  
 > `$ git submodule update` (to get the latest changes in submodule)  
 > or  
