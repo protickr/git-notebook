@@ -10,8 +10,15 @@ This is not an exhaustive list of commands or descriptions of version control sy
 Git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.
 It generally keeps track of all the commits (snapshot or, a package of changes) that we made to a project and lets us traverse through them and also move backward or forward at will.
 
-The Distributed version control system is different from The Centralized version control system as DVCS allows user to have an updated copy of the whole repository and CVCS allows user to have only a version of the project.
+The Distributed version control system is different from The Centralized version control system as DVCS allows all user to have an updated copy of the whole repository and CVCS allows user to have only a version of the project.  
 
+### GIT structure  
+There are three distinct compartments that are used by GIT to operate i.e.,  
+_Working Directory / Tree_ > ( `$ git add` )> _Staging Area / Index_ > ( `$ git commit -m "msg"` ) > _Repository_ > (`$ git push` ) > _Remote Repository_  
+Repository always has a commit hash but working directory and staging area do not, instead staging area has a virtual reference to latest commit or HEAD. 
+Meaning as if Staging Area also had a commit hash as same as HEAD.  
+  
+  
 ## Git configuration
 
 \
@@ -27,7 +34,7 @@ _**all configuration list**_
 >`$ git config --local --list`  
 >`$ git config --global --list`  
 >`$ git config --system --list`  
-local config, lists applicable config for current repository. 
+local config, lists applicable config for current repository.  
 
 _**help/doc of any command**_
 >`$ git help <command_verb>`  
@@ -214,24 +221,30 @@ so avoid using it.
 
 **show changes made**
 >`$ git diff`  
-> Difference between working directory vs staging.  
-> Shows changes that are not staged. Will not show newly added files or untracked files.  
->  
+Difference between working directory vs staging area / index.  
+Shows changes that are not staged. Will not show newly added files or untracked files.  
+  
 > `$ git diff --staged`  
-> Difference between Staged vs last_commit   
-> Review staged changes.  
->
+> or  
+> `$ git diff --cached`  
+Difference between staging area vs last_commit / HEAD  
+Review staged changes.  
+  
 >`$ git diff HEAD`  
-Shows incoming changes to parent, in this case HEAD, both staged and untracked changes.
->
+Shows incoming changes to parent, in this case HEAD, both staged and untracked changes.  
+Changes between working tree or working directory v/s HEAD or latest commit.  
+  
 > `$ git diff branch_name`  
 Changes made to a branch  
->  
+  
 >`$ git diff <file_name>`  
 Show changes made to file since previous commit
->  
+  
 >`$ git diff commit_hash_1 commit_hash_2`  
 Shows change between commit_1 and commit_2  
+
+>`$ git diff --stat`  
+Shows difference in short form.  
 
 ### Committing to local branch
 
@@ -271,7 +284,7 @@ Shows change between commit_1 and commit_2
 
 **re-writes git history**
 
-> Change previous commit message  
+> Change previous commit's commit message  
 > `$ git commit --amend -m "changed message"`  
 
 > Add new files to previous commit  
