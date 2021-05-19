@@ -25,8 +25,9 @@ _**Set git author's username and email**_
 _**all configuration list**_
 >`$ git config --list`  
 >`$ git config --local --list`  
->`$ git config --global --list`
-
+>`$ git config --global --list`  
+>`$ git config --system --list`  
+local config, lists applicable config for current repository. 
 
 _**help/doc of any command**_
 >`$ git help <command_verb>`  
