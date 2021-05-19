@@ -302,17 +302,17 @@ Shows difference in short form.
 
 #### Soft reset
 
-> `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`
+> `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`  
 > no changes are lost, changes remain in staging area  
 
 #### Mixed/default reset
 
-> `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`
+> `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`  
 > no changes are lost, changes are unstaged  
 
 #### Hard reset
 
-> `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`
+> `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`  
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
 
 #### Remove file/directory from staging area using git reset
@@ -323,26 +323,26 @@ Shows difference in short form.
 #### Remove chunk of change from staging area  
 > `$ git reset -p`  
 
-### Git Restore
-> Restores file in working tree and index
->
+### Git Restore  
+> Restores file in working tree and index  
+>  
 > `$ git restore --staged file1 file2 *.extension .`  
-> restores/removes files from index/staging to working tree/directory
->
+> restores/removes files from index/staging to working tree/directory  
+>  
 > `$ git restore file1 file2 *.extension .`  
->  restores/removes changes from working tree/directory
->
+>  restores/removes changes from working tree/directory  
+>  
 > `$ git restore --source <commit_hash> files .`  
-> restores file from a commit using provided commit_hash as source
-
+> restores file from a commit using provided commit_hash as source  
+  
 > **removes all untracked directory and files**  
 > `$ git clean -df`  
-
+  
 > *Remove from staging area part by part (patch by patch)*  
 > `$ git reset -p`  
-
-### retrieve changes after a hard reset
-
+  
+### retrieve changes after a hard reset  
+  
 > Execute the following command and grab hash of the commit that was discarded  
 > `$ git reflog`  
 > then  
@@ -351,59 +351,59 @@ Shows difference in short form.
 > This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
 > `$ git branch <new-commit-restored-branch>`  
 
-### Revert a pushed commit
+### Revert a pushed commit  
 > `$ git revert <commit_hash_that_to_be_undone>`   
 > **creates a new commit and does not re-write history**  
-
-### Remove or Rename files and directory
+  
+### Remove or Rename files and directory  
 > `$ git rm <path_to_file>`  
 > `$ git rm -r <path_to_directory>`  
 > removes file or directory from staging and working directory (project)  
 >  
 > `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
-> rename or move file
-
-**Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**
+> rename or move file  
+  
+**Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**  
 >`$ git rm --cached file.txt`  
 >`$ git rm --cached -r bin/`  
-
-### Transfer commit to another branch (Cherry Pick)
-
+  
+### Transfer commit to another branch (Cherry Pick)  
+  
 > find out commit hash of a commit to be transferred to other branch  
 > `$ git log`  
 > `$ git checkout <target_branch>`  
 > `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
-
-
+  
+  
 #### Never Ever edit or reset commit that has been already pushed.  
-
-## Stashing and Applying changes
-
+  
+## Stashing and Applying changes  
+  
 **Stash is available globally in all branches**  
 >_stashing changes_  
 > `$ git stash save <stash_message>`  
-
+  
 >_stash list_  
 > `$ git stash list`  
-
+  
 >_applying a stash_  
 > `$ git stash apply stash@{id}`  
 > applies stashed changes to checked-out branch from stashes identified with "id", does not delete the stash  
-
+  
 > _pop stash_  
 > `$ git stash pop`  
 > applies first stash from top of the stash stack to checked out branch and deletes it  
-
+  
 > _drop stash_  
 > `$ git stash drop stash@{id}`  
 > drops stash which is identified by id  
-
+  
 > _clear all stash_  
 > `$ git stash clear`  
 > deletes all stashes  
-
-## Git Rebase
-
+  
+## Git Rebase  
+  
 Rebases one branch onto another.  
 Generally when we create a new branch from another the new branch has all the updates as its parent branch but in case after branch creation, parent branch is updated with some commits that we need in our newly created branch then what should we do ?
 1. Checkout to its parent branch and pull updates.
