@@ -191,6 +191,7 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 > `$ git add -A`  
 or  
 > `$ git add --all`  
+> --all is default behaviour of git add, if no other option is specified such as -u -i -p  
 >
 > adds all files/folders to staging area from everywhere inside git initialized directory  
 >  
@@ -203,7 +204,8 @@ or
 
 >_add files to staging area from the current directory and its subdirectories_  
 > `$ git add .`  
-
+> is same as,  
+> `$ git add --all .`  
 >_add modified files only_  
 > `$ git add -u`  
 or  
@@ -583,8 +585,8 @@ It is an automation feature that resolves merge conflicts automatically based on
 > you should enable this feature before resolving conflicts in order to record them.
 >
 > `$ git rerere status`  
-> to show recorded resolutions
->
+> to show recorded resolutions  
+>  
 > `$ git config --global rerere.enabled false`  
 > to turn this feature off
 > 
