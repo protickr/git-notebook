@@ -284,10 +284,18 @@ Shows difference in short form.
 > Undo uncommitted changes that has been made to <a_file>  
 > `$ git checkout <a_file>`  
 >  
+> Undo all uncommitted changes in current directory and it's sub-directories, 
+> if staged then unstage changes and,   
+> if changes are unstaged or changes are in working directory then undo the changes.  
+> `$ git checkout -- .`  
+>  
 > Restore tracked but deleted folder  
 > `git reset -- path/to/folder`  
 > `git checkout -- path/to/folder`  
-  
+>  
+> a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options, 
+> after which only positional arguments are accepted.
+
 **re-writes git history**  
   
 > Change previous commit's commit message  
