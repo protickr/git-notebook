@@ -104,8 +104,8 @@ Cloning a repository from remote location automatically sets the remote origin a
 > `$ git branch -u origin <remote_branch_name>`  
 sets currently checked-out branch's upstream to remote_branch_name from origin
 >
-**Only works if upstream remote branch already exists**
-
+**Only works if upstream remote branch already exists**  
+  
 If it doesn't we need to push that newly created local-branch to remote and set upstream branch for that by following command,
 > `$ git push --set-upstream-to=origin/remote_branch <local_branch>`  
 > `$ git push -u <origin> <remote_branch>`  
@@ -206,6 +206,7 @@ or
 > `$ git add .`  
 > is same as,  
 > `$ git add --all .`  
+>  
 >_add modified files only_  
 > `$ git add -u`  
 or  
@@ -213,7 +214,7 @@ or
 
 **improper way to stage**
 > `$ git add *`  
-"*" is a shell command, so whatever returned by shell is added to staging area,
+"*" is a shell command, so whatever returned by shell is added to staging area,  
 it is imprecise and inconsistent across multiple operating system and environments  
 so avoid using it.  
   
@@ -243,32 +244,32 @@ Changes between working tree or working directory v/s HEAD or latest commit.
 Changes made to a branch  
   
 >`$ git diff <file_name>`  
-Show changes made to file since previous commit
+Show changes made to file since previous commit  
   
 >`$ git diff commit_hash_1 commit_hash_2`  
 Shows change between commit_1 and commit_2  
-
+  
 >`$ git diff --stat`  
 Shows difference in short form.  
-
+  
 ### Committing to local branch
 
-**Commit staged changes**
->`$ git commit -m "commit message"`
-
-**View a commit**
+**Commit staged changes**  
+>`$ git commit -m "commit message"`  
+  
+**View a commit**  
 > `$ git show <commit_hash>`  
 > `$ git show <commit_hash:directory/file>`  
-
-**show git commit log**
+  
+**show git commit log**  
 > `$ git log`  
 > `$ git log --stat`    
 > `$ git log --graph`  
 > `$ git log --all --oneline --decorate --graph --abbrev-commit`  
-> as a tree
-
-
-### Push commit to remote repo
+> as a tree  
+  
+  
+### Push commit to remote repo  
 > First take a pull then push  
 >`$ git pull origin branch`  
 >`$ git push origin branch`  
@@ -276,55 +277,55 @@ Shows difference in short form.
 > `$ git pull`  
 > `$ git push`  
 > If the remote upstream branch is already set or set upstream branch first.  
-
-
-## How to fix mistakes
+  
+  
+## How to fix mistakes  
   
 > Undo uncommitted changes that has been made to <a_file>  
 > `$ git checkout <a_file>`  
 >  
 > Restore tracked but deleted folder  
 > `git reset -- path/to/folder`  
-> `git checkout -- path/to/folder`
-
-**re-writes git history**
-
+> `git checkout -- path/to/folder`  
+  
+**re-writes git history**  
+  
 > Change previous commit's commit message  
 > `$ git commit --amend -m "changed message"`  
-
+  
 > Add new files to previous commit  
 > `$ git add .`  
 > or  
 >`$ git add <file_name>`  
 > `$ git commit --amend`  
-
-### Git Reset
-
-**there are 3 types of git reset**
-
-#### Soft reset
-
+  
+### Git Reset  
+  
+**there are 3 types of git reset**  
+  
+#### Soft reset  
+  
 > `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`  
 > no changes are lost, changes remain in staging area  
-
-#### Mixed/default reset
-
+  
+#### Mixed/default reset  
+  
 > `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`  
 > no changes are lost, changes are unstaged  
-
-#### Hard reset
-
+  
+#### Hard reset  
+  
 > `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`  
 > changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
-
-#### Remove file/directory from staging area using git reset
+  
+#### Remove file/directory from staging area using git reset  
 > `$ git reset file.txt`  
 > `$ git reset HEAD -- file.txt`  
 > `$ git reset HEAD -- directory`  
-
+  
 #### Remove chunk of change from staging area  
 > `$ git reset -p`  
-
+  
 ### Git Restore  
 > Restores file in working tree and index  
 >  
@@ -352,7 +353,7 @@ Shows difference in short form.
 >  
 > This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
 > `$ git branch <new-commit-restored-branch>`  
-
+  
 ### Revert a pushed commit  
 > `$ git revert <commit_hash_that_to_be_undone>`   
 > **creates a new commit and does not re-write history**  
@@ -520,29 +521,29 @@ git-bisect - Use binary search to find a commit that introduced a bug
 > starts bisecting mode  
 > `$ git bisect good <commit_hash>`  ( select earlier commit when the bug was not introduced yet)  
 > `$ git bisect bad HEAD` ( select commit where things are broken)  
-> `$ git bisect visualize` (where am I at, at this moment while bisecting)
->
+> `$ git bisect visualize` (where am I at, at this moment while bisecting)  
+>  
 > In this point we will need a testing script that will check the existence of files and such   
 > the testing script should output 0 if intended functionality is working properly or 1 if not.  
-> Also, the script should not be source-controlled i.e., not tracked by Git.
->
+> Also, the script should not be source-controlled i.e., not tracked by Git.  
+>  
 > `$ git bisect run ./script.ext`  
 > now Git bisect will run that script against every commit and report bad-commit based on  
 > the script's output.  
-> `$ git bisect reset`  (when bisecting is finished, or you found the bad commit)
->
+> `$ git bisect reset`  (when bisecting is finished, or you found the bad commit)  
+>  
 > What git bisect really does is, checkout commit hashes in a binary search fashion and waits for your instruction.  
-> if you do not want to use a test script then you should mark commit as good or bad depending on your manual testing.
-> As Git will checkout a commit hash, you can run and test the project as if you were in a branch. If it's behaviour is
+> if you do not want to use a test script then you should mark commit as good or bad depending on your manual testing.  
+> As Git will checkout a commit hash, you can run and test the project as if you were in a branch. If it's behaviour is  
 > okay then mark it good or bad otherwise.  
 > `$ git bisect good`  
 > `$ git bisect bad`  
 > then git will automatically select the next commit hash.  
 > Finally after Git bisect reset you will be checked out to HEAD, the latest commit of the branch you were working on.  
-
-
+  
+  
 ## Git Submodules
- 
+  
 It is a way to use another module (source controlled project i.e., repository) within a parent project  
 The benefit of using another repository as your dependency library is, you can always get the latest update  
 without getting into useless hassles such as, copying the new source code again and again.  
@@ -552,7 +553,7 @@ Making any changes to that submodule will be available to all other parent proje
 other projects easily, use submodules**  
   
 >_Add submodules to your main project_  
-> `$ git submodule add <submodule_source> <directory_name>`      
+> `$ git submodule add <submodule_source> <directory_name>`  
 > previous command must be run from root of parent project directory.  
 >  
 > then in the parent project directory run the following,  
@@ -569,10 +570,10 @@ other projects easily, use submodules**
 > `$ git submodule update` (to get the latest changes in submodule)  
 > or  
 > `$ git clone --recurse-submodules <main_project_link>`  
->
+>  
 > if you forgot to use recurse when cloning you can also use,   
 > `$ git submodule update --init`  
->
+>  
 > or to make it foolproof,  
 > `$ git submodule update --init --recursive`  
 
@@ -583,18 +584,18 @@ It is an automation feature that resolves merge conflicts automatically based on
 
 > `$ git config --global rerere.enabled true`  
 > you should enable this feature before resolving conflicts in order to record them.
->
+>  
 > `$ git rerere status`  
 > to show recorded resolutions  
 >  
 > `$ git config --global rerere.enabled false`  
-> to turn this feature off
-> 
+> to turn this feature off  
+>  
 > delete .git/rr-cache directory to delete recorded resolution.  
 > or  
 > `$ git rerere forget <recorded_resolution_name>`  
 > to forget specific resolution  
-> 
+>  
 
 
 [Index][index]
