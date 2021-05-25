@@ -7,7 +7,7 @@ This is not an exhaustive list of commands or descriptions of version control sy
 
 ## What is git
 
-Git is a distributed version control system that enables us to control versioning of a project by tracking different versions of it.  
+Git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.  
 It generally keeps track of all the commits (snapshot or, a package of changes) that we made to our project and enables us to traverse through them.  
   
 The Distributed version control system is different from The Centralized version control system as  
