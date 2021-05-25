@@ -91,9 +91,12 @@ _**Colorful informative git**_
 ## Initialization and Branching
 
 *git initialization at a local directory*
->go to the root of the project directory and,   
+> go to the root of the project directory and,   
 > `$ git init`  
-if cloned from remote repository then project directory will be named as repository-name and git is already initialized in it, no need to initialize it again.
+
+if cloned from remote repository then,  
+Project directory will be named as repository-name if cloning destination not specified  
+And git is already initialized in it, no need to initialize it again.  
 
 *add remote origin (where commits will be pushed) to a local repository*
 > `$ git remote add origin <origin_address>`  
