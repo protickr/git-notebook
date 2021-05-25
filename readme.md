@@ -10,7 +10,9 @@ This is not an exhaustive list of commands or descriptions of version control sy
 Git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.
 It generally keeps track of all the commits (snapshot or, a package of changes) that we made to a project and lets us traverse through them and also move backward or forward at will.
 
-The Distributed version control system is different from The Centralized version control system as DVCS allows all user to have an updated copy of the whole repository and CVCS allows user to have only a version of the project.  
+The Distributed version control system is different from The Centralized version control system as  
+DVCS allows all users to have an updated copy of the whole repository offline 
+CVCS allows user to have only a version of the project and they commit their changes to remote central repository directly.  
 
 ### GIT structure  
 There are three distinct compartments that are used by GIT to operate i.e.,  
