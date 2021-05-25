@@ -359,6 +359,8 @@ Shows difference in short form.
 > then  
 > `$ git checkout <hash>`  
 >  
+> git reflog is actually a notebook that records commit traversal history  
+>
 > This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
 > `$ git branch <new-commit-restored-branch>`  
   
@@ -386,7 +388,7 @@ Shows difference in short form.
 > `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
   
   
-#### Never Ever edit or reset commit that has been already pushed.  
+#### Never Ever edit or reset commit that has already been pushed.  
   
 ## Stashing and Applying changes  
   
