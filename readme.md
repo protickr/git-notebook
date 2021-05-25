@@ -7,9 +7,9 @@ This is not an exhaustive list of commands or descriptions of version control sy
 
 ## What is git
 
-Git is a distributed version control system that enables us to control versions of a project by tracking different versions of it.  
-It generally keeps track of all the commits (snapshot or, a package of changes) that we made to a project and lets us traverse through them and also move backward or forward at will.
-
+Git is a distributed version control system that enables us to control versioning of a project by tracking different versions of it.  
+It generally keeps track of all the commits (snapshot or, a package of changes) that we made to our project and enables us to traverse through them.  
+  
 The Distributed version control system is different from The Centralized version control system as  
 DVCS allows all users to have an updated copy of the whole repository offline  
 CVCS allows user to have only a version of the project and they commit their changes to remote central repository directly.  
@@ -20,8 +20,8 @@ _**Working Directory / Tree**_ > ( `$ git add` )> _**Staging Area / Index**_ >
 ( `$ git commit -m "msg"` ) > _**Repository**_ > (`$ git push` ) > _**Remote Repository**_  
 Repository always has a commit hash that points to latest commit which is labeled as HEAD  
 But working directory and staging area do not,  
-Instead staging area keeps a virtual reference to latest commit or HEAD. 
-Meaning as if Staging Area also had a commit hash as same as HEAD.  
+Instead staging area keeps a virtual reference to latest commit or HEAD.  
+Meaning as if Staging Area is as updated as latest commit of the repository.  
   
   
 ## Git configuration
