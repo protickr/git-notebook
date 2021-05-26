@@ -97,7 +97,7 @@ _**Colorful informative git**_
 if cloned from remote repository then,  
 Project directory will be named as repository-name if cloning destination not specified  
 And git is already initialized in it, no need to initialize it again.  
-
+  
 *add remote origin (where commits will be pushed) to a local repository*
 > `$ git remote add origin <origin_address>`  
 this will add a remote named "origin" which will point to URL specified by origin_address.  
@@ -118,7 +118,7 @@ or,
 > `$ git push origin HEAD`  
 Upstream indicates where commits will be pushed, [but there must be some commit before doing so]  
 
-*Show information about remote*
+*Show information about remote*  
 > `$ git remote -v`  
 
 _To check upstream branch from any checked-out branch_
