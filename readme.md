@@ -231,31 +231,52 @@ so avoid using it.
 > `$ git ls-files`  
 
 **show changes made**
->`$ git diff`  
+
+>`$ git diff`   
 Difference between working directory vs staging area / index.  
 Shows changes that are not staged. Will not show newly added files or untracked files.  
   
+> `$ git diff [<options>] --no-index [--] <path> <path>`  
+compare between two file paths  
+  
+if --staged or --cached option is used then diffs between index v/s commit_hash    
+> `$ git diff --staged <commit_hash>`  
+> or,  
+> `$ git diff --cached <commit_hash>`  
+> or,  
 > `$ git diff --staged`  
-> or  
-> `$ git diff --cached`  
-Difference between staging area vs last_commit / HEAD  
+The commit_hash section default to HEAD if left empty while --staged or --cached flag is used.  
 Review staged changes.  
   
->`$ git diff HEAD`  
-Shows incoming changes to parent, in this case HEAD, both staged and untracked changes.  
-Changes between working tree or working directory v/s HEAD or latest commit.  
+> `$ git diff <options> <commit_hash> <file_name>`  
+>  
+>`$ git diff HEAD`   
+Shows changes that you have in your working directory compared to commit_hash.  
   
 > `$ git diff branch_name`  
 Changes made to a branch  
+it will check for differences between "working directory" and "branch_name"  
+as branch_name is also a pointer to a commit hash.  
   
->`$ git diff <file_name>`  
-Show changes made to file since previous commit  
+>`$ git diff <path/file_name>`  
+Shows changes made to a file compared to the index that are not staged or in working directory.  
   
+>`$ git diff commit_hash_1..commit_hash_2`  
+>  
 >`$ git diff commit_hash_1 commit_hash_2`  
-Shows change between commit_1 and commit_2  
+>  
+>`$ git diff commit_hash_1...commit_hash_2`  
+>  
+Shows changes between commit_hash_1 and commit_hash_2  
+  
+>`$ git diff <options> <commit_hash_1>  <commit_hash_2> <path/file_name.txt>`    
+Shows differences from file_name.txt between commit_hash_1 and commit_hash_2  
   
 >`$ git diff --stat`  
 Shows difference in short form.  
+  
+>`$ git diff --color-words`  
+Shows difference in color, e.g., added changes in green and removed changes in red.  
   
 ### Committing to local branch
 
@@ -289,8 +310,8 @@ Shows difference in short form.
 > Undo uncommitted changes that has been made to <a_file>  
 > `$ git checkout <a_file>`  
 >  
-> Undo all uncommitted changes in current directory and it's sub-directories, 
-> if staged then unstage changes and,   
+> Undo all uncommitted changes in current directory and it's sub-directories,  
+> if staged then unstage changes and,  
 > if changes are unstaged or changes are in working directory then undo the changes.  
 > `$ git checkout -- .`  
 >  
@@ -298,8 +319,8 @@ Shows difference in short form.
 > `git reset -- path/to/folder`  
 > `git checkout -- path/to/folder`  
 >  
-> a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options, 
-> after which only positional arguments are accepted.
+> a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
+> after which only positional arguments are accepted.  
 
 **re-writes git history**  
   
