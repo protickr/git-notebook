@@ -304,118 +304,6 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git push`  
 > If the remote upstream branch is already set or set upstream branch first.  
   
-  
-## How to fix mistakes  
-  
-> Undo uncommitted changes that has been made to <a_file>  
-> `$ git checkout <a_file>`  
->  
-> Undo all uncommitted changes in current directory and it's sub-directories,  
-> if staged then unstage changes and,  
-> if changes are unstaged or changes are in working directory then undo the changes.  
-> `$ git checkout -- .`  
->  
-> Restore tracked but deleted folder  
-> `git reset -- path/to/folder`  
-> `git checkout -- path/to/folder`  
->  
-> a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
-> after which only positional arguments are accepted.  
-
-**re-writes git history**  
-  
-> Change previous commit's commit message  
-> `$ git commit --amend -m "changed message"`  
-  
-> Add new files to previous commit  
-> `$ git add .`  
-> or  
->`$ git add <file_name>`  
-> `$ git commit --amend`  
-  
-### Git Reset  
-  
-**there are 3 types of git reset**  
-  
-#### Soft reset  
-  
-> `$ git reset --soft <commit_hash_to_where_head_will_be_resetted_to>`  
-> no changes are lost, changes remain in staging area  
-  
-#### Mixed/default reset  
-  
-> `$ git reset <commit_hash_to_where_head_will_be_resetted_to>`  
-> no changes are lost, changes are unstaged  
-  
-#### Hard reset  
-  
-> `$ git reset --hard <commit_hash_to_where_head_will_be_resetted_to>`  
-> changes are discarded from tracked files but does not do anything to untracked files, resets back to fresh  
-  
-#### Remove file/directory from staging area using git reset  
-> `$ git reset file.txt`  
-> `$ git reset HEAD -- file.txt`  
-> `$ git reset HEAD -- directory`  
-  
-#### Remove chunk of change from staging area  
-> `$ git reset -p`  
-  
-### Git Restore  
-> Restores file in working tree and index  
->  
-> `$ git restore --staged file1 file2 *.extension .`  
-> restores/removes files from index/staging to working tree/directory  
->  
-> `$ git restore file1 file2 *.extension .`  
->  restores/removes changes from working tree/directory  
->  
-> `$ git restore --source <commit_hash> files .`  
-> restores file from a commit using provided commit_hash as source  
-  
-> **removes all untracked directory and files**  
-> `$ git clean -df`  
-  
-> *Remove from staging area part by part (patch by patch)*  
-> `$ git reset -p`  
-  
-### retrieve changes after a hard reset  
-  
-> Execute the following command and grab hash of the commit that was discarded  
-> `$ git reflog`  
-> then  
-> `$ git checkout <hash>`  
->  
-> git reflog is actually a notebook that records commit traversal history  
->
-> This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
-> `$ git branch <new-commit-restored-branch>`  
-  
-### Revert a pushed commit  
-> `$ git revert <commit_hash_that_to_be_undone>`   
-> **creates a new commit and does not re-write history**  
-  
-### Remove or Rename files and directory  
-> `$ git rm <path_to_file>`  
-> `$ git rm -r <path_to_directory>`  
-> removes file or directory from staging and working directory (project)  
->  
-> `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
-> rename or move file  
-  
-**Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**  
->`$ git rm --cached file.txt`  
->`$ git rm --cached -r bin/`  
-  
-### Transfer commit to another branch (Cherry Pick)  
-  
-> find out commit hash of a commit to be transferred to other branch  
-> `$ git log`  
-> `$ git checkout <target_branch>`  
-> `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
-  
-  
-#### Never Ever edit or reset commit that has already been pushed.  
-  
 ## Stashing and Applying changes  
   
 **Stash is available globally in all branches**  
@@ -441,6 +329,138 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git stash clear`  
 > deletes all stashes  
   
+  
+## How to fix mistakes  
+
+### Repository restoration  
+
+#### Modify previous commit, --amend  
+**re-writes git history**  
+    
+> Change previous commit's commit message  
+> `$ git commit --amend -m "changed message"`  
+  
+> Add new files to previous commit  
+> `$ git add .`  
+> or  
+>`$ git add <file_name>`  
+> `$ git commit --amend`  
+  
+
+#### Undo commit(s) locally by Git Reset  
+  
+**Changes where or which commit, branch is pointing to, does not directly Moves HEAD**  
+
+**there are 3 types of git reset**  
+  
+#### Soft reset  
+  
+> `$ git reset --soft <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
+> no changes are lost, changes remain in staging area  
+> Moves branch-pointer to specified commit and stops.  
+  
+#### Mixed/default reset  
+  
+> `$ git reset <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
+> no changes are lost, changes are unstaged  
+> Moves branch-pointer to specified commit and,  
+> Updates the index/staging area with content from HEAD to make it identical to HEAD.  
+  
+#### Hard reset  
+  
+> `$ git reset --hard <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
+> changes are discarded from tracked files and staging area but does not do anything to untracked files, resets back to fresh  
+> Moves branch-pointer to specified commit,  
+> Updates the index/staging area with content from HEAD and,  
+> Copies all content from Index and overwrites Working Directory with them.  
+  
+  
+### Recover commit after hard reset using reflog    
+  
+> Execute the following command and grab hash of the commit that was discarded  
+> `$ git reflog`  
+> then  
+> `$ git checkout <hash>`  
+>  
+> git reflog is actually a notebook that records commit traversal history / travel diary of HEAD.  
+>  
+> This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
+> Detached HEAD i.e., the HEAD is pointing to a commit that is not a tip of any branch.  
+> `$ git branch <new-commit-restored-branch>`  
+> and then merge your "new-commit-restored-branch" with your desired branch.  
+> or reset --mixed and then stash changes and pop them in your branch.  
+> or cherry-pick commits to another branch.  
+  
+### Transfer commit to another branch (Cherry Pick)  
+  
+> find out commit hash of a commit to be transferred to other branch  
+> `$ git log`  
+> `$ git checkout <target_branch>`  
+> `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
+  
+#### Never Ever edit or reset commit that has already been pushed.  
+  
+### Undo pushed changes using revert  
+> `$ git revert <commit_hash_of_the_changes_to_undo>`   
+> **creates a new commit and does not re-write history**  
+  
+  
+### Index / Staging Area , Working Directory / Working Tree  restoration with checkout, reset and restore  
+  
+#### Remove file/directory from staging area using git reset  
+> `$ git reset file.txt`  
+> `$ git reset HEAD -- file.txt`  
+> `$ git reset HEAD -- directory`  
+  
+#### Remove chunk of change from staging area  
+> `$ git reset -p`  
+
+> Undo uncommitted changes that has been made to <a_file>  
+> `$ git checkout <a_file>`  
+>  
+> Undo all uncommitted changes in current directory and it's sub-directories,  
+> if staged then unstage changes and,  
+> if changes are unstaged or changes are in working directory then undo the changes.  
+> `$ git checkout -- .`  
+>  
+> Restore tracked but deleted folder  
+> `git reset -- path/to/folder`  
+> `git checkout -- path/to/folder`  
+>  
+> a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
+> after which only positional arguments are accepted.  
+  
+### Git Restore  
+> Restores file in working tree and index  
+>  
+> `$ git restore --staged file1 file2 *.extension .`  
+> restores/removes files from index/staging to working tree/directory  
+>  
+> `$ git restore file1 file2 *.extension .`  
+>  restores/removes changes from working tree/directory  
+>  
+> `$ git restore --source <commit_hash> files .`  
+> restores file from a commit using provided commit_hash as source  
+  
+> **removes all untracked directory and files**  
+> `$ git clean -df`  
+  
+> *Remove from staging area part by part (patch by patch)*  
+> `$ git reset -p`  
+  
+
+### Remove or Rename files and directory  
+> `$ git rm <path_to_file>`  
+> `$ git rm -r <path_to_directory>`  
+> removes file or directory from staging and working directory (project)  
+>  
+> `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
+> rename or move file  
+  
+**Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**  
+>`$ git rm --cached file.txt`  
+>`$ git rm --cached -r bin/`  
+
 ## Git Rebase  
   
 Rebases one branch onto another.  
