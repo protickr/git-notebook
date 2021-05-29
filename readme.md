@@ -349,8 +349,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 #### Undo commit(s) locally by Git Reset  
   
-**Changes where or which commit, branch is pointing to, does not directly Moves HEAD**  
-
+**Changes where or which commit branch is pointing to, does not directly Moves HEAD**  
 **there are 3 types of git reset**  
   
 #### Soft reset  
@@ -398,7 +397,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git checkout <target_branch>`  
 > `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
   
-#### Never Ever edit or reset commit that has already been pushed.  
+**Never Ever edit or reset commit that has already been pushed.**  
   
 ### Undo pushed changes using revert  
 > `$ git revert <commit_hash_of_the_changes_to_undo>`   
