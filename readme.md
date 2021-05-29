@@ -342,6 +342,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > or  
 >`$ git add <file_name>`  
 > `$ git commit --amend`  
+**Commit Message is also a part of the Commit, changing it changes history**
   
 #### Undo commit(s) locally by Git Reset  
   
@@ -371,7 +372,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 **GIT Reset Defaults**
 > `$ git reset`  
-> is same as,
+> is same as,  
 > `$ git reset --mixed HEAD`  
 
 ### Recover commit after hard reset using reflog    
