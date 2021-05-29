@@ -368,19 +368,22 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > Moves branch-pointer to specified commit,  
 > Updates the index/staging area with content from HEAD and,  
 > Copies all content from Index and overwrites Working Directory with them.  
-  
-  
+
+**GIT Reset Defaults**
+> `$ git reset`  
+> is same as,
+> `$ git reset --mixed HEAD`  
+
 ### Recover commit after hard reset using reflog    
-  
+
 > Execute the following command and grab hash of the commit that was discarded  
 > `$ git reflog`  
-> then  
-> `$ git checkout <hash>`  
->  
 > git reflog is actually a notebook that records commit traversal history / travel diary of HEAD.  
->  
+> then,  
+> `$ git checkout <hash>`  
 > This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
 > Detached HEAD i.e., the HEAD is pointing to a commit that is not a tip of any branch.  
+
 > `$ git branch <new-commit-restored-branch>`  
 > and then merge your "new-commit-restored-branch" with your desired branch.  
 > or reset --mixed and then stash changes and pop them in your branch.  
@@ -396,18 +399,14 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 **Never Ever edit or reset commit that has already been pushed.**  
   
 ### Undo pushed changes using revert  
-> `$ git revert <commit_hash_of_the_changes_to_undo>`   
+> `$ git revert <commit_hash_of_the_changes_to_undo>`  
 > **creates a new commit and does not re-write history**  
   
 ### Index / Staging Area , Working Directory / Working Tree  restoration with checkout, reset and restore  
-  
-#### Remove file/directory from staging area using git reset  
-> `$ git reset file.txt`  
-> `$ git reset HEAD -- file.txt`  
-> `$ git reset HEAD -- directory`  
-  
-#### Remove chunk of change from staging area  
-> `$ git reset -p`  
+
+Restore file and direcotry using,  
+
+#### Checkout
 
 > Undo uncommitted changes that has been made to <a_file>  
 > `$ git checkout <a_file>`  
@@ -418,13 +417,26 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git checkout -- .`  
 >  
 > Restore tracked but deleted folder  
-> `git reset -- path/to/folder`  
 > `git checkout -- path/to/folder`  
 >  
 > a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
 > after which only positional arguments are accepted.  
   
-### Git Restore  
+#### Reset
+
+Remove file/directory from staging area using git reset  
+> `$ git reset file.txt`  
+> `$ git reset HEAD -- file.txt`  
+> `$ git reset HEAD -- directory`  
+
+Remove chunk of change from staging area  
+> `$ git reset -p`  
+
+> Restore tracked but deleted folder  
+> `git reset -- path/to/folder`  
+
+#### Restore
+
 > Restores file in working tree and index  
 >  
 > `$ git restore --staged file1 file2 *.extension .`  
@@ -442,18 +454,21 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > *Remove from staging area part by part (patch by patch)*  
 > `$ git reset -p`  
   
+#### Rename/Move file/directory and stage them
 
-### Remove or Rename files and directory  
+**Remove files and directory**  
 > `$ git rm <path_to_file>`  
 > `$ git rm -r <path_to_directory>`  
 > removes file or directory from staging and working directory (project)  
->  
+
+**Rename or move files and directory**
 > `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
 > rename or move file  
-  
-**Remove file/directory from staging which is recently been ignored by GIT but tracked earlier**  
+
+**Remove file/directory from tracking list which is recently been ignored by GIT but tracked earlier**  
 >`$ git rm --cached file.txt`  
 >`$ git rm --cached -r bin/`  
+
 
 ## Git Rebase  
   
