@@ -186,7 +186,6 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 
 ### Tracking and Staging
 
-
 **show modified flies and newly created files or directory**
 
 > `$ git status`  
@@ -197,19 +196,17 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 
 **add files to staging area**
 > `$ git add -A`  
-or  
+> or  
 > `$ git add --all`  
 > --all is default behaviour of git add, if no other option is specified such as -u -i -p  
->
 > adds all files/folders to staging area from everywhere inside git initialized directory  
->  
+  
 > `$ git add -p`  
 > Add to staging area part by part (patch by patch).  
-> 
+  
 > `$ git add -i`  
 > Add to staging area using interactive mode.  
-
-
+  
 >_add files to staging area from the current directory and its subdirectories_  
 > `$ git add .`  
 > is same as,  
@@ -229,11 +226,8 @@ so avoid using it.
 > While  
 > `$ git add *.txt`  
 > adds all files with txt extension to staging area.
-
-**List of files in staging area**
-> `$ git ls-files`  
-
-**show changes made**
+  
+### Show changes made
 
 >`$ git diff`   
 Difference between working directory vs staging area / index.  
@@ -339,7 +333,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 #### Modify previous commit, --amend  
 **re-writes git history**  
-    
+  
 > Change previous commit's commit message  
 > `$ git commit --amend -m "changed message"`  
   
@@ -349,7 +343,6 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 >`$ git add <file_name>`  
 > `$ git commit --amend`  
   
-
 #### Undo commit(s) locally by Git Reset  
   
 **Changes where or which commit branch is pointing to, does not directly Moves HEAD**  
@@ -399,7 +392,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git log`  
 > `$ git checkout <target_branch>`  
 > `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
-  
+
 **Never Ever edit or reset commit that has already been pushed.**  
   
 ### Undo pushed changes using revert  
