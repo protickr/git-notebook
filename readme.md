@@ -139,6 +139,9 @@ or,
 *Create a new branch and switch to that at once*
 > `$ git checkout -b <branch_name>`
 
+*Rename a local branch*
+> `$ git branch -m <old_name> <new_name>`
+
 *Show branch from local*
 > `$ git branch`  
   
@@ -306,7 +309,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 ## Stashing and Applying changes  
   
-**Stash is available globally in all branches**  
+**Stashes all changes from working directory and index is available globally in all branches**  
 >_stashing changes_  
 > `$ git stash save <stash_message>`  
   
@@ -402,7 +405,6 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 ### Undo pushed changes using revert  
 > `$ git revert <commit_hash_of_the_changes_to_undo>`   
 > **creates a new commit and does not re-write history**  
-  
   
 ### Index / Staging Area , Working Directory / Working Tree  restoration with checkout, reset and restore  
   
