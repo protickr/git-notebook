@@ -156,26 +156,27 @@ or,
 checkout branch where you intend to merge another branch
 > `$ git checkout master`  
 checked out to master branch
->
+
 > `$ git branch --merged`  
->lists branches that are merged to current branch  
->
+lists branches that are merged to current branch  
+
 > `$ git merge <feature_branch_name>`  
 > or  
 >  `$ git merge --squash <source/feature_branch_name>`  
-> to squash commits from source branch into single commit
+To squash commits from source branch into single commit  
 
-> Octopus merge  
+**Octopus merge**  
 > `$ git merge master feature-branch`  
-> merges master with feature-branch and currently checked out branch.  
+merges master with feature-branch and currently checked out branch.  
 
-> in case of conflict while merging use,  
+in case of conflict while merging use,  
 > `$ git mergetool`  
-> to resolve conflict graphically using mergetool.  
-> then  
+to resolve conflict graphically using mergetool.  
+  
+>then  
 > `$ git merge --continue`
->
-> Or you can just simply abort the merge.  
+  
+Or you can just simply abort the merge.  
 > `$ git merge --abort`
 
 **Branch Deleting**  
@@ -186,20 +187,18 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 
 ### Tracking and Staging
 
-**show modified flies and newly created files or directory**
-
+**show modified flies and newly created files or directory**  
 > `$ git status`  
->  
 > or short status by,  
 > `$ git status -s`  
-
-
+  
 **add files to staging area**
 > `$ git add -A`  
 > or  
 > `$ git add --all`  
-> --all is default behaviour of git add, if no other option is specified such as -u -i -p  
-> adds all files/folders to staging area from everywhere inside git initialized directory  
+
+--all is default behaviour of git add, if no other option is specified such as -u -i -p  
+adds all files/folders to staging area from everywhere inside git initialized directory  
   
 > `$ git add -p`  
 > Add to staging area part by part (patch by patch).  
