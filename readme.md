@@ -414,7 +414,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 #### Checkout
 
-> Note: git checkout moves HEAD to point to target branch but with <pathspec> it does not. 
+> Note: git checkout moves HEAD to point to target branch but with "pathspec" it does not. 
 > Rather it updates index and overwrites Working Directory with  
 > content from the commit specified.  
   
@@ -452,7 +452,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `git checkout filename.ext --ours`  
 > Note: In a merge conflict git splits index area into 3 areas; result, your version, remote version.  
   
-> There is also a patch option available if using <pathspec>  
+> There is also a patch option available if using "pathspec"  
 > `git checkout . -p`  
 > press s to split a large chunk of change in smaller chunks while in this mode.  
   
