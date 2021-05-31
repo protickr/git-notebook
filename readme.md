@@ -353,19 +353,23 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 > `$ git reset --soft <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
 > no changes are lost, changes remain in staging area  
+>  
 > Moves branch-pointer to specified commit and stops.  
   
 #### Mixed/default reset  
   
 > `$ git reset <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
 > no changes are lost, changes are unstaged  
+>  
 > Moves branch-pointer to specified commit and,  
 > Updates the index/staging area with content from HEAD to make it identical to HEAD.  
   
 #### Hard reset  
   
 > `$ git reset --hard <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
-> changes are discarded from tracked files and staging area but does not do anything to untracked files, resets back to fresh  
+> changes are discarded from tracked files and staging area but does not do anything to untracked files,  
+> resets back to fresh  
+>  
 > Moves branch-pointer to specified commit,  
 > Updates the index/staging area with content from HEAD and,  
 > Copies all content from Index and overwrites Working Directory with them.  
