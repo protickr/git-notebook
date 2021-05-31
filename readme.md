@@ -378,7 +378,9 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git reset`  
 > is same as,  
 > `$ git reset --mixed HEAD`  
-
+  
+**git reset manipulates all three trees; working tree, index, repository**
+  
 ### Recover commit after hard reset using reflog    
 
 > Execute the following command and grab hash of the commit that was discarded  
@@ -414,7 +416,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 #### Checkout
 
-> Note: git checkout moves HEAD to point to target branch but with "pathspec" it does not. 
+> Note: git checkout moves HEAD to point to target branch but with "pathspec" it does not move HEAD. 
 > Rather it updates index and overwrites Working Directory with  
 > content from the commit specified.  
   
@@ -437,14 +439,14 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 > `git checkout HEAD -- <file.ext>`  
 > Updates file.ext in index and then working tree with the same version as HEAD.  
-> HEAD -> Index -> Working Directory.
-> (git rest --hard HEAD file.ext) which is not allowed by git reset.   
+> HEAD -> Index -> Working Directory.  
+> (git rest --hard HEAD file.ext) which is not allowed by git reset.  
   
 > `git checkout <commit_hash> -- <file1.ext file2.ext>`  
 > `git checkout <branch> -- <file1.ext file2.ext>`  
 > Updates file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
-> Commit -> Index -> Working Directory.   
-
+> Commit -> Index -> Working Directory.  
+  
 > Restore tracked but deleted folder from index to working tree  
 > `git checkout -- path/to/folder`  
   
@@ -452,22 +454,44 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `git checkout filename.ext --ours`  
 > Note: In a merge conflict git splits index area into 3 areas; result, your version, remote version.  
   
-> There is also a patch option available if using "pathspec"  
+> There is also a patch option available  
 > `git checkout . -p`  
 > press s to split a large chunk of change in smaller chunks while in this mode.  
   
+**like git reset, git checkout manipulates all three trees; working tree, index, repository**  
+  
 #### Reset
 
+> Note: git reset moves branch that HEAD points to a specified commit or HEAD (default)  
+> but with "pathspec" it does not move branch to point to a  specific commit  
+> Rather it updates index with content from the commit specified or HEAD.  
+>  
+> it could also update working directory but "--hard" option is not permitted with pathspec/file/direcotories
+  
 Remove file/directory from staging area using git reset  
+> `$ git reset --mixed HEAD -- file.txt`  
+> `$ git reset --mixed HEAD -- directory`  
+> or shorthand as,  
 > `$ git reset file.txt`  
-> `$ git reset HEAD -- file.txt`  
-> `$ git reset HEAD -- directory`  
-
+> `$ git reset directory`  
+  
+Unstage everything from index  
+> `$ git reset `  
+> or,  
+> `$ git reset --mixed HEAD`  
+  
+Restore tracked and previously committed but deleted folder  
+> `git reset -- path/to/folder`  
+  
+Restore tracked and previously committed but deleted file  
+> `git reset -- path/to/file.ext`  
+  
+Restore a file/directory from earlier version/commit and directly stage to Index.  
+> `$ git reset --mixed <commit_hash> <pathspec/file/directory/.>`  
+  
 Remove chunk of change from staging area  
 > `$ git reset -p`  
-
-> Restore tracked but deleted folder  
-> `git reset -- path/to/folder`  
+(Reset Demystified)[https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified]
 
 #### Restore
 
