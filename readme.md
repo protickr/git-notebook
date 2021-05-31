@@ -499,7 +499,7 @@ Restore a file/directory from earlier version/commit/branch and directly stage t
 Remove chunk of change from staging area  
 > `$ git reset -p`  
   
-(Reset Demystified)[https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified]
+[Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
 #### Restore
 
