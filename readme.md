@@ -508,6 +508,7 @@ Remove chunk of change from staging area
 [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
 #### Restore
+  
 Restore specified paths in the working tree with some contents from a restore source. If a  
 path is tracked but does not exist in the restore source, it will be removed to match the  
 source.  
@@ -517,17 +518,31 @@ both the working tree and the index with --staged --worktree.
   
 By default, the restore sources for working tree and the index are the index and HEAD  
 respectively. --source could be used to specify a commit as the restore source.  
-  
-> Restores file in working tree and index  
->  
-> `$ git restore --staged file1 file2 *.extension .`  
-> restores/removes files from index/staging to working tree/directory  
+
+> Restore file in the worktree from the Index or discard unstaged local changes  
 >  
 > `$ git restore file1 file2 *.extension .`  
->  restores/removes changes from working tree/directory  
+> `$ git restore .`
+> is same as,  
+> `$ git restore --worktree .`  
+> if --staged flag is not passed then it defaults to --worktree and use the Index as source.  
+  
+> Restore file in the Index or unstage changes  
 >  
-> `$ git restore --source <commit_hash> files .`  
-> restores file from a commit using provided commit_hash as source  
+> `$ git restore --staged file1 file2 *.extension .`  
+> is same as,  
+> `$ git restore --source=HEAD --staged file1 file2 *.extension .`  
+> restores files in index/staging area from HEAD.  
+> restoring file from HEAD to Index effectively unstages changes.  
+  
+> Restore file/directory in the Worktree from a commit using provided commit_hash as source  
+> `$ git restore --source <commit_hash> directory/files`  
+  
+> Restore file/directory in the Index from a commit using provided commit_hash as source  
+> `$ git restore  --source <commit_hash> --staged directory/files`  
+  
+> Restore file/directory in the Index and in the Worktree from a commit as source  
+> `$ git restore  --source <commit_hash> --staged --worktree directory/files`  
   
 **removes all untracked directory and files**  
 > `$ git clean -df`  
