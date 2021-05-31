@@ -384,6 +384,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > Execute the following command and grab hash of the commit that was discarded  
 > `$ git reflog`  
 > git reflog is actually a notebook that records commit traversal history / travel diary of HEAD.  
+>  
 > then,  
 > `$ git checkout <hash>`  
 > This is not a branch, we are in a "detached-head state", so we need to create a branch here,  
