@@ -508,7 +508,16 @@ Remove chunk of change from staging area
 [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
 #### Restore
-
+Restore specified paths in the working tree with some contents from a restore source. If a  
+path is tracked but does not exist in the restore source, it will be removed to match the  
+source.  
+  
+The command can also be used to restore the content in the index with --staged, or restore  
+both the working tree and the index with --staged --worktree.  
+  
+By default, the restore sources for working tree and the index are the index and HEAD  
+respectively. --source could be used to specify a commit as the restore source.  
+  
 > Restores file in working tree and index  
 >  
 > `$ git restore --staged file1 file2 *.extension .`  
