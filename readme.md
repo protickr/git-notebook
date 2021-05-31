@@ -447,7 +447,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > Updates file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
 > Commit -> Index -> Working Directory.  
   
-> Restore tracked but deleted folder from index to working tree  
+> Restore tracked but deleted and not staged folder from index to working tree  
 > `git checkout -- path/to/folder`  
   
 > Resolve merge conflict by checking out --ours or --theirs version of file that caused a merge conflict  
@@ -480,17 +480,25 @@ Unstage everything from index
 > or,  
 > `$ git reset --mixed HEAD`  
   
-Restore tracked and previously committed but deleted folder  
-> `git reset -- path/to/folder`  
+Restore tracked and previously committed folder which is deleted and staged.  
+> `$ git reset -- path/to/folder`  
+> `$ git reset --mixed HEAD -- path/to/folder`  
+> Previous command will restore the folder into index from HEAD.  
+>  
+> Now restore the folder into working directory by the following,  
+> `$ git checkout -- path/to/folder`  
   
 Restore tracked and previously committed but deleted file  
-> `git reset -- path/to/file.ext`  
+> same as folder/directory but with a filename istead.  
   
-Restore a file/directory from earlier version/commit and directly stage to Index.  
-> `$ git reset --mixed <commit_hash> <pathspec/file/directory/.>`  
+Restore a file/directory from earlier version/commit/branch and directly stage to Index.  
+> `$ git reset --mixed <commit_hash> -- <pathspec/file/directory/.>`  
+> `$ git reset --mixed <branch_name> -- <pathspec/file/directory/.>`  
+> this command is a bit more powerful, procced with caution.  
   
 Remove chunk of change from staging area  
 > `$ git reset -p`  
+  
 (Reset Demystified)[https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified]
 
 #### Restore
