@@ -519,49 +519,48 @@ both the working tree and the index with --staged --worktree.
 By default, the restore sources for working tree and the index are the index and HEAD  
 respectively. --source could be used to specify a commit as the restore source.  
 
-> Restore file in the worktree from the Index or discard unstaged local changes  
->  
+Restore file in the worktree from the Index or discard unstaged local changes    
 > `$ git restore file1 file2 *.extension .`  
 > `$ git restore .`
 > is same as,  
 > `$ git restore --worktree .`  
 > if --staged flag is not passed then it defaults to --worktree and use the Index as source.  
   
-> Restore file in the Index or unstage changes  
->  
+Restore file in the Index or unstage changes  
 > `$ git restore --staged file1 file2 *.extension .`  
 > is same as,  
 > `$ git restore --source=HEAD --staged file1 file2 *.extension .`  
 > restores files in index/staging area from HEAD.  
 > restoring file from HEAD to Index effectively unstages changes.  
   
-> Restore file/directory in the Worktree from a commit using provided commit_hash as source  
+Restore file/directory in the Worktree from a commit using provided commit_hash as source  
 > `$ git restore --source <commit_hash> directory/files`  
   
-> Restore file/directory in the Index from a commit using provided commit_hash as source  
+Restore file/directory in the Index from a commit using provided commit_hash as source  
 > `$ git restore  --source <commit_hash> --staged directory/files`  
   
-> Restore file/directory in the Index and in the Worktree from a commit as source  
+Restore file/directory in the Index and in the Worktree from a commit as source  
 > `$ git restore  --source <commit_hash> --staged --worktree directory/files`  
-  
-**removes all untracked directory and files**  
-> `$ git clean -df`  
   
 #### Rename/Move file/directory and stage them
 
-**Remove files and directory**  
-> `$ git rm <path_to_file>`  
+Remove files and directory  
+> `$ git rm <path_to_file>` 
+>  
 > `$ git rm -r <path_to_directory>`  
 > removes file or directory from staging and working directory (project)  
 
-**Rename or move files and directory**
+Rename or move files and directory  
 > `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
-> rename or move file  
 
-**Remove file/directory from tracking list which is recently been ignored by GIT but tracked earlier**  
+Remove file/directory from tracking list which is recently been ignored by GIT but tracked earlier  
 >`$ git rm --cached file.txt`  
 >`$ git rm --cached -r bin/`  
 
+#### Remove untracked files
+
+Remove all untracked directory and files  
+> `$ git clean -df`  
 
 ## Git Rebase  
   
