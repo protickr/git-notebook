@@ -494,7 +494,7 @@ Restore tracked and previously committed but deleted file
 Restore a file/directory from earlier version/commit/branch and directly stage to Index.  
 > `$ git reset --mixed <commit_hash> -- <pathspec/file/directory/.>`  
 > `$ git reset --mixed <branch_name> -- <pathspec/file/directory/.>`  
-> this command is a bit more powerful, procced with caution.  
+> this command is a bit more powerful, proceed with caution.  
   
 Remove chunk of change from staging area  
 > `$ git reset -p`  
