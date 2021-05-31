@@ -422,35 +422,41 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 > a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
 > after which only positional arguments are accepted.  
-  
+
+Undo unstaged changes that has been made to <a_file>    
 > `$ git checkout <a_file>`  
 > `$ git checkout -- file1 file2`  
-> Undo unstaged changes that has been made to <a_file>  
+>  
 > Unlike reset it doesn't default the <tree-ish> parameter to HEAD rather defaults to --staged iplicitly  
 > Meaning, overwrites specified files in working tree with content from the respective files in index.  
   
+Make Working Directory identical to Index.  
 > `$ git checkout -- .`  
-> Makes Working Directory identical to Index.  
   
+Make Index and working tree identical to HEAD  
 > `git checkout HEAD -- .`  
-> Makes index and working tree identical to HEAD  
+>  
 > HEAD -> Index -> Working Directory.  
-> (git reset --hard HEAD)
+> (git reset --hard HEAD)  
   
+Update file.ext in index and then working tree with the same version as HEAD.  
 > `git checkout HEAD -- <file.ext>`  
-> Updates file.ext in index and then working tree with the same version as HEAD.  
+>  
 > HEAD -> Index -> Working Directory.  
 > (git rest --hard HEAD file.ext) which is not allowed by git reset.  
   
+Restore file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
 > `git checkout <commit_hash> -- <file1.ext file2.ext>`  
 > `git checkout <branch> -- <file1.ext file2.ext>`  
-> Updates file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
 > Commit -> Index -> Working Directory.  
   
-> Restore tracked but deleted and not staged folder from index to working tree  
+Restore tracked but deleted and not staged folder from index to working tree  
 > `git checkout -- path/to/folder`  
+
+Restore tracked but deleted and staged folder from HEAD to working tree  
+> `git checkout HEAD -- path/to/folder`  
   
-> Resolve merge conflict by checking out --ours or --theirs version of file that caused a merge conflict  
+Resolve merge conflict by checking out --ours or --theirs version of file that caused a merge conflict  
 > `git checkout filename.ext --ours`  
 > Note: In a merge conflict git splits index area into 3 areas; result, your version, remote version.  
   
@@ -514,11 +520,8 @@ Remove chunk of change from staging area
 > `$ git restore --source <commit_hash> files .`  
 > restores file from a commit using provided commit_hash as source  
   
-> **removes all untracked directory and files**  
+**removes all untracked directory and files**  
 > `$ git clean -df`  
-  
-> *Remove from staging area part by part (patch by patch)*  
-> `$ git reset -p`  
   
 #### Rename/Move file/directory and stage them
 
