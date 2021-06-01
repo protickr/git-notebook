@@ -293,6 +293,19 @@ Shows difference in short form.
   
 >`$ git diff --color-words`  
 Shows difference in color, e.g., added changes in green and removed changes in red.  
+
+#### Custom Diff category and coverter tools
+
+1. Add and edit .gitattributes file in your repository, append the following, 
+   > `*.odt diff = odt`  
+   > Now all files with odt extension will be diffed in odt category  
+
+2. Set file mode for categories that doesn't make sense while being diffed to binary so git will stop showing diff results.  
+   > `$ git config --local diff.odt.binary true`  
+
+3. You can also set a text converter to show diff results in text format  
+   > `$ git config --local diff.odt.textconv = odt2text`  
+
   
 ### Committing to local branch
 
