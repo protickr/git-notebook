@@ -124,20 +124,32 @@ Upstream indicates where commits will be pushed, [but there must be some commit 
 _To check upstream branch from any checked-out branch_
 > `$ git push -u`
 
-*Create a branch*
+*Create a branch from HEAD as the source*
 > `$ git branch <branch_name>`
+
+*Create a new branch from HEAD and switch to that at once*
+> `$ git checkout -b <branch_name>`  
+> or,  
+> `$ git switch -c <branch_name>`  
 
 *Create and switch to a branch from other branch at once*
 > `$ git checkout -b <new_branch_name> <source_branch>`  
+> or,  
+> `$ git switch -c <new_branch_name> <source_branch>`  
 or,  
-> `git checkout <source_branch>`  
-> `git branch <new_branch>`  
+> `$ git checkout <source_branch>`  
+> `$ git branch <new_branch>`  
+> `$ git checkout <new_branch>`  
 
 *Switch to a branch*
-> `$ git checkout <branch_name>`
+> `$ git checkout <branch_name>`  
+> or,  
+> `$ git switch <branch_name>`  
 
-*Create a new branch and switch to that at once*
-> `$ git checkout -b <branch_name>`
+*Switch to a branch in detach head state to carry on expermient*
+> `$ git checkout branch_name@{0}`  
+> or,  
+> `$ git switch --detach <commit_hash>`
 
 *Rename a local branch*
 > `$ git branch -m <old_name> <new_name>`
@@ -434,34 +446,34 @@ Make Working Directory identical to Index.
 > `$ git checkout -- .`  
   
 Make Index and working tree identical to HEAD  
-> `git checkout HEAD -- .`  
+> `$ git checkout HEAD -- .`  
 >  
 > HEAD -> Index -> Working Directory.  
 > (git reset --hard HEAD)  
   
 Update file.ext in index and then working tree with the same version as HEAD.  
-> `git checkout HEAD -- <file.ext>`  
+> `$ git checkout HEAD -- <file.ext>`  
 >  
 > HEAD -> Index -> Working Directory.  
 > (git rest --hard HEAD file.ext) which is not allowed by git reset.  
   
 Restore file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
-> `git checkout <commit_hash> -- <file1.ext file2.ext>`  
-> `git checkout <branch> -- <file1.ext file2.ext>`  
+> `$ git checkout <commit_hash> -- <file1.ext file2.ext>`  
+> `$ git checkout <branch> -- <file1.ext file2.ext>`  
 > Commit -> Index -> Working Directory.  
   
 Restore tracked but deleted and not staged folder from index to working tree  
-> `git checkout -- path/to/folder`  
+> `$ git checkout -- path/to/folder`  
 
 Restore tracked but deleted and staged folder from HEAD to working tree  
-> `git checkout HEAD -- path/to/folder`  
+> `$ git checkout HEAD -- path/to/folder`  
   
 Resolve merge conflict by checking out --ours or --theirs version of file that caused a merge conflict  
-> `git checkout filename.ext --ours`  
+> `$ git checkout filename.ext --ours`  
 > Note: In a merge conflict git splits index area into 3 areas; result, your version, remote version.  
   
 > There is also a patch option available  
-> `git checkout . -p`  
+> `$ git checkout . -p`  
 > press s to split a large chunk of change in smaller chunks while in this mode.  
   
 **like git reset, git checkout manipulates all three trees; working tree, index, repository**  
@@ -637,7 +649,12 @@ Then, you can fast-forward the base branch (master):
 [source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)  
   
 > `$ git pull --rebase`  
-> in case of a rebase disaster.  
+> or,  
+> `$ git fetch`  
+> `$ git rebase remote/branch`  
+> in case of a rebase disaster, i.e., someone else overwrote commit that you based your work on and force pushed that.  
+  
+**You can get the best of both worlds: rebase local changes before pushing to clean up your work, but never rebase anything that you’ve pushed somewhere.**  
   
 ##### Fast Forward Merge  
 
@@ -646,7 +663,7 @@ If it detects that your current HEAD is an ancestor of the commit you're trying 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
 ## Interactive Rebase
-"Git interactive rebase" is different from "Git rebase". Interactive rebase allows user to change commit message (reword), delete commits (drop), combines commits into 1 (fixup/squash), reorder commits (By reordering them in Interactive window), splitting commits by providing an interactive window.
+"Git interactive rebase" is different from "Git rebase". Interactive rebase allows user to change commit message (reword), delete commits (drop), combines commits into 1 (fixup/squash), reorder commits (By reordering them in Interactive window), commit splitting by providing an interactive window.
 
 "Git rebase" re-bases one branch onto another.
 
@@ -706,7 +723,7 @@ The benefit of using another repository as your dependency library is, you can a
 without getting into useless hassles such as, copying the new source code again and again.  
 Making any changes to that submodule will be available to all other parent projects who are using it.  
   
-**When you do not want your library to be available publicly but also need it to be source-controlled and used within  
+**When you do not want your library to be available publicly but also need it to be source-controlled and used within 
 other projects easily, use submodules**  
   
 >_Add submodules to your main project_  
@@ -754,7 +771,51 @@ It is an automation feature that resolves merge conflicts automatically based on
 > to forget specific resolution  
 >  
 
+## Tagging
 
+Git supports two types of tags: lightweight and annotated.  
+
+_Annotated tags_ stored as full objects in the Git database. 
+They’re checksummed; contain the tagger name, email, and date; have a tagging message;  
+and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that  
+you create annotated tags so you can have all this information; but if you want a temporary tag  
+or for some reason don’t want to keep the other information, lightweight tags are available too  
+  
+> `$ git tag -a <tag_name> -m <tag_message> <commit_hash or defaults to HEAD>`  
+> here -a , -m stands for annotated and message respectively.  
+
+_A lightweight tag_ is very much like a branch that doesn’t change — it’s just a pointer to a specific commit.  
+
+> to create a lightweight tag do not supply -a -s or -m  
+> `$ git tag <tag_name> <commit_hash or defaults to HEAD>`  
+  
+_List of tags_  
+> `$ git tag`  
+  
+_Search for tags_    
+> `$ git tag -l "v1.0.1*"`  
+> `$ git tag --list "v1.0.1*"`  
+  
+_Sharing Tags_
+By default, the git push command doesn’t transfer tags to remote servers.  
+You will have to explicitly push tags to a shared server after you have created them.  
+This process is just like sharing remote branches — you can run 
+> `$ git push origin <tagname>`  
+> or,  
+> `$ git push origin --tags`  
+> to push all tags to remote  
+  
+_Deleting Tags_
+To delete a tag on your local repository, you can use  
+> `$ git tag -d <tagname>`  
+  
+To delete a tag from remote server,  
+> `$ git push origin --delete <tag_name>`  
+  
+_Checking out Tags_
+If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects:  
+> `$ git checkout <tag_name>`  
+    
 [Index][index]
 
 [index]: index.md
