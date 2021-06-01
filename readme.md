@@ -235,6 +235,11 @@ adds all files/folders to staging area from everywhere inside git initialized di
 > `$ git add -u`  
 or  
 > `$ git add --update`  
+>  
+>_do not add deleted files to staging area_  
+> `$ git add --no-all`  
+or  
+> `$ git add --ignore-removal`  
 
 **improper way to stage**
 > `$ git add *`  
