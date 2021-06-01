@@ -311,6 +311,11 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 **Commit staged changes**  
 >`$ git commit -m "commit message"`  
+
+**Stage all changes and commit**  
+>`$ git commit -a -m "commit message"`  
+> or,  
+>`$ git commit -am "commit message"`  
   
 **View a commit**  
 > `$ git show <commit_hash>`  
