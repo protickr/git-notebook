@@ -855,7 +855,7 @@ HEAD^2 : the second parent of HEAD, if HEAD was a merge, otherwise illegal
 HEAD@{2} : refers to the 3rd listing in the overview of git reflog  
 HEAD~~ : 2 commits older than HEAD  
 HEAD^^ : 2 commits older than HEAD  
-
+  
 If HEAD was a merge, then,  
 > first parent is the branch into which we merged,  
 > second parent is the branch we merged.  
