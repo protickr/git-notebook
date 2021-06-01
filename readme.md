@@ -104,28 +104,16 @@ It is a storage facility rather than a development environment.
   
 if cloned from remote repository then,  
 Project directory will be named as repository-name if cloning destination not specified  
+> or,  
+> `$ git clone <repository/source> <target/directory/path>`  
+>  
 And git is already initialized in it, no need to initialize it again.  
   
 *add remote origin (where commits will be pushed) to a local repository*
 > `$ git remote add origin <origin_address>`  
 this will add a remote named "origin" which will point to URL specified by origin_address.  
-Cloning a repository from remote location automatically sets the remote origin and origin_address.
-
-*Set upstream branch*
-> `$ git branch --set-upstream-to=origin/<remote_branch_name> <local_branch_name>`
->
-> `$ git branch -u origin <remote_branch_name>`  
-sets currently checked-out branch's upstream to remote_branch_name from origin
->
-**Only works if upstream remote branch already exists**  
+Cloning a repository from remote location automatically sets the remote origin and origin_address.  
   
-If it doesn't we need to push that newly created local-branch to remote and set upstream branch for that by following command,
-> `$ git push --set-upstream-to=origin/remote_branch <local_branch>`  
-> `$ git push -u <origin> <remote_branch>`  
-or,  
-> `$ git push origin HEAD`  
-Upstream indicates where commits will be pushed, [but there must be some commit before doing so]  
-
 *Show information about remote*  
 > `$ git remote -v`  
 
@@ -170,7 +158,22 @@ or,
 
 *Show branch tree*
 > `$ git log --graph`  
-> `git log --graph --pretty=oneline --abbrev-commit`
+> `git log --graph --pretty=oneline --abbrev-commit`  
+
+*Set upstream branch*
+> `$ git branch --set-upstream-to=origin/<remote_branch_name> <local_branch_name>`  
+>  
+> `$ git branch -u origin <remote_branch_name>`  
+sets currently checked-out branch's upstream to remote_branch_name from origin  
+>
+**Only works if upstream remote branch already exists**  
+  
+If it doesn't we need to push that newly created local-branch to remote and set upstream branch for that by following command,
+> `$ git push --set-upstream-to=origin/remote_branch <local_branch>`  
+> `$ git push -u <origin> <remote_branch>`  
+or,  
+> `$ git push origin HEAD`  
+Upstream indicates where commits will be pushed, [but there must be some commit before doing so]  
 
 **Branch merging**  
 checkout branch where you intend to merge another branch
