@@ -88,8 +88,16 @@ If a conflict occurs during a merge it can be resolved graphically by,
 _**Colorful informative git**_
 > use posh-git for windows or zsh for unix  
 
+## Bare repositories -- Central remote repository
+> `$ git init --bare project.git`  
+>  
+Initializes a bare repository called project.git where developers will be able to push and pull from  
+It _dose not have a working directory,_ making changes and committing directly to it is impossible.  
+It is a storage facility rather than a development environment.  
+  
+  
 ## Initialization and Branching
-
+  
 *git initialization at a local directory*
 > go to the root of the project directory and,   
 > `$ git init`  
@@ -97,14 +105,6 @@ _**Colorful informative git**_
 if cloned from remote repository then,  
 Project directory will be named as repository-name if cloning destination not specified  
 And git is already initialized in it, no need to initialize it again.  
-  
-  
-*Bare repositories -- Central remote repository*
-> `$ git init --bare project.git`  
->  
-Initializes a bare repository called project.git where developers will be able to push and pull from  
-It _dose not have a working directory,_ making changes and committing directly to it is impossible.  
-It is a storage facility rather than a development environment.  
   
 *add remote origin (where commits will be pushed) to a local repository*
 > `$ git remote add origin <origin_address>`  
