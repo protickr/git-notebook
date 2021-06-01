@@ -847,7 +847,19 @@ _Checking out Tags_
 If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects:  
 > `$ git checkout <tag_name>`  
   
-  
+
+## HEAD ~ vs ^ 
+
+HEAD~2 : 2 commits older than HEAD  
+HEAD^2 : the second parent of HEAD, if HEAD was a merge, otherwise illegal  
+HEAD@{2} : refers to the 3rd listing in the overview of git reflog  
+HEAD~~ : 2 commits older than HEAD  
+HEAD^^ : 2 commits older than HEAD  
+
+If HEAD was a merge, then,  
+> first parent is the branch into which we merged,
+> second parent is the branch we merged.
+
 [Index][index]
   
 [index]: index.md
