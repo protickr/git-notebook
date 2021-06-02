@@ -300,6 +300,11 @@ Shows changes made to a file compared to the index that are not staged or in wor
 Shows changes between commit_hash_1 and commit_hash_2  
   
 >`$ git diff <options> <commit_hash_1>  <commit_hash_2> <path/file_name.txt>`    
+> e.g.,  
+> `$ git diff --color-words HEAD~2 HEAD`  
+>  or,  
+> `$ git diff --color-words <parent_commit> <latest_commit>`  
+> 
 Shows differences from file_name.txt between commit_hash_1 and commit_hash_2  
   
 >`$ git diff --stat`  
