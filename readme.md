@@ -226,7 +226,7 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 > or  
 > `$ git add --all`  
 
---all is default behaviour of git add, if no other option is specified such as -u -i -p  
+--all is default behaviour of git add, if no other option is specified such as -u or --update  
 adds all files/folders to staging area from everywhere inside git initialized directory  
   
 > `$ git add -p`  
