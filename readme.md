@@ -142,6 +142,9 @@ or,
 > or,  
 > `$ git switch <branch_name>`  
 
+*Switch back to previous branch*
+> `$ git switch -`  
+
 *Switch to a branch in detach head state to carry on expermient*
 > `$ git checkout branch_name@{0}`  
 > or,  
