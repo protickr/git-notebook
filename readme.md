@@ -464,7 +464,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 ### Index / Staging Area , Working Directory / Working Tree  restoration with checkout, reset and restore  
 
-**Restore file and direcotry using,**  
+**Restore file and directory using,**  
 
 #### Checkout
 
@@ -524,7 +524,7 @@ Resolve merge conflict by checking out --ours or --theirs version of file that c
 > but with "pathspec" it does not move branch to point to a  specific commit  
 > Rather it updates index with content from the commit specified or HEAD.  
 >  
-> it could also update working directory but "--hard" option is not permitted with pathspec/file/direcotories
+> it could also update working directory but "--hard" option is not permitted with pathspec/file/directories
   
 Remove file/directory from staging area using git reset  
 > `$ git reset --mixed HEAD -- file.txt`  
