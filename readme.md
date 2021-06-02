@@ -226,7 +226,7 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 > or  
 > `$ git add --all`  
 
---all is default behaviour of git add, if no other option is specified such as -u -i -p  
+--all is default behaviour of git add, if no other option is specified such as -u or --update  
 adds all files/folders to staging area from everywhere inside git initialized directory  
   
 > `$ git add -p`  
@@ -446,7 +446,6 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 
 > `$ git branch <new-commit-restored-branch>`  
 > and then merge your "new-commit-restored-branch" with your desired branch.  
-> or reset --mixed and then stash changes and pop them in your branch.  
 > or cherry-pick commits to another branch.  
   
 ### Transfer commit to another branch (Cherry Pick)  
