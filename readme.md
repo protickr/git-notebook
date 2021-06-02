@@ -504,7 +504,7 @@ Restore file1.ext, file2.ext in index and then working tree with the same versio
 Restore tracked but deleted and not staged folder from index to working tree  
 > `$ git checkout -- path/to/folder`  
 
-Restore tracked but deleted and staged folder from HEAD to working tree  
+Restore tracked but deleted and staged folder from HEAD to index and then to working tree  
 > `$ git checkout HEAD -- path/to/folder`  
   
 Resolve merge conflict by checking out --ours or --theirs version of file that caused a merge conflict  
