@@ -146,12 +146,12 @@ or,
 > `$ git switch -`  
 
 *Switch to a branch in detach head state to carry on expermient*
-> `$ git checkout branch_name@{0}`
-> or,    
+> `$ git checkout branch_name@{0}`  
+> or,  
 > `$ git checkout "branch_name@{0}"`  
 > in powershell,  
 > or,  
-> `$ git switch --detach <commit_hash>`
+> `$ git switch --detach <commit_hash>`  
 
 *Rename a local branch*
 > `$ git branch -m <old_name> <new_name>`
