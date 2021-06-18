@@ -62,8 +62,11 @@ _**Set default config editor for git**_
 First set the intended app's path in your environment variables.
 > `$ git config --global core.editor "app --wait"`  
 (Open config file in "app" and edit global-config by,)  
-> `$ git config --global -e`
+> `$ git config --global -e`  
 
+_**Add an Alias for git commands**_  
+> `$ git config --global alias.grph "log --all --oneline --decorate --graph --abbrev-commit"`  
+  
 _**git diff and mergetool**_  
 Set diff and merge tool as it is helpful while viewing differences and resolving merge conflicts graphically.  In this example we will be using "meld"  
 
