@@ -347,6 +347,11 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > `$ git log --all --oneline --decorate --graph --abbrev-commit`  
 > as a tree  
   
+**show commit that are not pushed to remote**  
+> `$ git log origin/master..master`  
+  
+**show total number of commits made**  
+> `$ git rev-list --count HEAD`  
   
 ### Push commit to remote repo  
 > First take a pull then push  
