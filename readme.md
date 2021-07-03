@@ -353,6 +353,12 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 **show commit that are not pushed to remote**  
 > `$ git log origin/master..master`  
   
+**show all commits that changed a specific file**  
+> `$ git log -p filename`  
+> `$ git log --follow -- filename`  
+> `$ git log -- path/to/filename`  
+> `$ git log --all --first-parent --remotes --reflog --author-date-order -- filename`
+  
 **show total number of commits made**  
 > `$ git rev-list --count HEAD`  
   
