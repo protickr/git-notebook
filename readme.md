@@ -212,7 +212,7 @@ Or you can just simply abort the merge.
 > `$ git merge --abort`
 
 **Branch Deleting**  
-From local `$ git branch -d <branch_name_1> <branch_name_2> <branch_name_2> <branch_name_n>`  
+From local `$ git branch -d <branch_name_1> <branch_name_2> <branch_name_3> <branch_name_n>`  
 From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_name_n>`  
 
 ## Staging Committing Pushing
