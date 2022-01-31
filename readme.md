@@ -484,7 +484,7 @@ _**there are 3 types of git reset**_
   
 ### Index, Working Directory restoration with checkout, reset and restore  
   
-$~$
+&nbsp;  
   
 
 **Restore file and directory using,**  
@@ -506,7 +506,7 @@ $~$
 > a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
 > after which only positional arguments are accepted.  
 
-$~$
+&nbsp;  
 
 Undo unstaged changes that has been made to a < file >  
 > `$ git checkout a <file>`  
@@ -569,7 +569,7 @@ Resolve merge conflict by checking out --ours or --theirs version of file that c
 > `$ git checkout . -p`  
 > press s to split a large chunk of change in smaller chunks while in this mode.  
   
-$~$
+&nbsp;  
   
 #### Reset
 
@@ -578,7 +578,7 @@ $~$
 >  
 > it could also update working directory but "--hard" option is not permitted with pathspec/file/directories
   
-  $~$
+  &nbsp;  
 
 Remove file/directory from staging area using git reset  
 > `$ git reset --mixed HEAD -- file.txt`  
@@ -614,11 +614,11 @@ Remove chunk of change from staging area
 [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
 
-$~$
+&nbsp;  
 
 #### Restore
   
-$~$  
+&nbsp;    
   
 
 1. Restore specified paths in the working tree with contents from a restore source.  
@@ -651,9 +651,9 @@ Restore file/directory in the Index from a commit using provided commit_hash as 
 Restore file/directory in the Index and in the Worktree from a commit as source  
 > `$ git restore  --source <commit_hash> --staged --worktree directory/files`  
   
-$~$
+&nbsp;  
 #### Rename/Move file/directory and stage them
-$~$
+&nbsp;  
 
 Remove files and directory  
 > `$ git rm <path_to_file>` 
@@ -673,7 +673,7 @@ Remove file/directory from tracking list which is recently been ignored by GIT b
 Remove all untracked directory and files  
 > `$ git clean -df`  
   
-$~$
+&nbsp;  
 ## Git Rebase  
   
 Rebases one branch onto another.  
@@ -703,7 +703,7 @@ Generally when we create a new branch from another the new branch has all the up
    > so, if you've done any of those commands since the rebase you're trying to undo then you'll have to use the reflog.  
    > [source](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)  
 
-$~$
+&nbsp;  
   
 #### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
@@ -763,7 +763,7 @@ If it detects that your current HEAD is an ancestor of the commit you're trying 
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
-$~$
+&nbsp;  
 
 ## Interactive Rebase
 "Git interactive rebase" is different from "Git rebase". Interactive rebase allows user to change commit message (reword), delete commits (drop), combines commits into 1 (fixup/squash), reorder commits (By reordering them in Interactive window), commit splitting by providing an interactive window.
@@ -790,7 +790,7 @@ $~$
     to transfer those new commits to original branch from the intermediate interactive branch.  
 >  
 
-$~$
+&nbsp;  
 
 ## Git Bisect
 git-bisect - Use binary search to find a commit that introduced a bug  
@@ -820,7 +820,7 @@ git-bisect - Use binary search to find a commit that introduced a bug
 > then git will automatically select the next commit hash.  
 > Finally after Git bisect reset you will be checked out to HEAD, the latest commit of the branch you were working on.  
   
-$~$
+&nbsp;  
   
 ## Git Submodules
   
@@ -857,7 +857,7 @@ other projects easily, use submodules**
 > or to make it foolproof,  
 > `$ git submodule update --init --recursive`  
 
-$~$
+&nbsp;  
 
 ## ReReRe Reuse Recorded Resolution
 
@@ -878,7 +878,7 @@ It is an automation feature that resolves merge conflicts automatically based on
 > to forget specific resolution  
 >  
 
-$~$
+&nbsp;  
 
 ## Tagging
 
@@ -925,7 +925,7 @@ _Checking out Tags_
 If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects:  
 > `$ git checkout <tag_name>`  
 
-$~$  
+&nbsp;    
 
 ## HEAD ~ vs ^ 
 
