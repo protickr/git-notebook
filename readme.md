@@ -221,6 +221,7 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 
 **show modified flies and newly created files or directory**  
 > `$ git status`  
+> `$ git status -v -v`  
 > or short status by,  
 > `$ git status -s`  
   
@@ -417,33 +418,34 @@ Shows difference in color, e.g., added changes in green and removed changes in r
   
 #### Undo commit(s) locally by Git Reset  
   
-**Changes where or which commit branch is pointing to, does not directly Moves HEAD**  
-**there are 3 types of git reset**  
+_**Changes where or which commit branch is pointing to, does not directly Moves HEAD**_  
+_**there are 3 types of git reset**_  
   
 #### Soft reset  
   
-> `$ git reset --soft <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
-> no changes are lost, changes remain in staging area  
+> `$ git reset --soft <commit_hash>`  
+> no changes from previous commits are lost, changes remain in staging area  
 >  
-> Moves branch-pointer to specified commit and stops.  
+> 1. Moves branch-pointer to specified commit and stops.  
   
 #### Mixed/default reset  
   
-> `$ git reset <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
+> `$ git reset <commit_hash>`  
+> `$ git reset --mixed <commit_hash>`  
 > no changes are lost, changes are unstaged  
 >  
-> Moves branch-pointer to specified commit and,  
-> Updates the index/staging area with content from HEAD to make it identical to HEAD.  
+> 1. Moves branch-pointer to specified commit and,  
+> 2. Updates the index/staging area with content from HEAD to make it identical to HEAD and stops.  
   
 #### Hard reset  
   
-> `$ git reset --hard <commit_hash_where_tip_of_the_branch_will_be_resetted_to>`  
+> `$ git reset --hard <commit_hash>`  
 > changes are discarded from tracked files and staging area but does not do anything to untracked files,  
 > resets back to fresh  
 >  
-> Moves branch-pointer to specified commit,  
-> Updates the index/staging area with content from HEAD and,  
-> Copies all content from Index and overwrites Working Directory with them.  
+> 1. Moves branch-pointer to specified commit,  
+> 2. Updates the index/staging area with content from HEAD and,  
+> 3. Copies all content from Index and overwrites Working Directory with them and stops.  
 
 **GIT Reset Defaults**
 > `$ git reset`  
@@ -472,32 +474,46 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 > find out commit hash of a commit to be transferred to other branch  
 > `$ git log`  
 > `$ git checkout <target_branch>`  
-> `$ git cherry-pick <commit_hash_that_need_to_be_cherry_picked>`  
+> `$ git cherry-pick <commit_hash>`  
 
 **Never Ever edit or reset commit that has already been pushed.**  
   
 ### Undo pushed changes using revert  
-> `$ git revert <commit_hash_of_the_changes_to_undo>`  
-> **creates a new commit and does not re-write history**  
+> `$ git revert <commit_hash>`  
+> creates a new commit and does not re-write history  
   
-### Index / Staging Area , Working Directory / Working Tree  restoration with checkout, reset and restore  
+### Index, Working Directory restoration with checkout, reset and restore  
+  
+$~$
+  
 
 **Restore file and directory using,**  
 
 #### Checkout
 
-> Note: git checkout moves HEAD to point to target branch but with "pathspec" it does not move HEAD. 
-> Rather it updates index and overwrites Working Directory with  
-> content from the commit specified.  
+> Switching branches or cloning goes through a similar process.  
+> When you checkout a branch, 
+> 1. it changes HEAD to point to the new branch ref,  
+> 2. populates your index with the snapshot of that commit,  
+> 3. then copies the contents of the index into your working directory.  
+
+> **Note: git checkout <branch_name/commit_hash> -- "pathspec" does not move HEAD.**  
+> Rather it skips step 1 then  
+> 2. updates index identical to commit_hash   
+> 3. overwrites Working Directory with content from the commit specified.  
+> _it is not working direcotry safe_  
   
 > a double dash (--) is used in most Bash built-in commands and many other commands to signify the end of command options,  
 > after which only positional arguments are accepted.  
 
-Undo unstaged changes that has been made to <a_file>    
-> `$ git checkout <a_file>`  
+$~$
+
+Undo unstaged changes that has been made to a < file >  
+> `$ git checkout a <file>`  
 > `$ git checkout -- file1 file2`  
 >  
-> Unlike reset it doesn't default the <tree-ish> parameter to HEAD rather defaults to --staged iplicitly  
+>  (Needs testing)  
+> Unlike reset it doesn't default the < tree-ish > parameter to HEAD rather defaults to --staged iplicitly  
 > Meaning, overwrites specified files in working tree with content from the respective files in index.  
   
 Make Working Directory identical to Index.  
@@ -505,22 +521,41 @@ Make Working Directory identical to Index.
   
 Make Index and working tree identical to HEAD  
 > `$ git checkout HEAD -- .`  
->  
+> or,  
 > HEAD -> Index -> Working Directory.  
 > (git reset --hard HEAD)  
   
 Update file.ext in index and then working tree with the same version as HEAD.  
 > `$ git checkout HEAD -- <file.ext>`  
->  
 > HEAD -> Index -> Working Directory.  
-> (git rest --hard HEAD file.ext) which is not allowed by git reset.  
-  
+>  
+>  
+GIT RESET vs CHECKOUT _when used with -- pathspec_  
+> `$ git reset --soft commit_hash -- file.ext`  
+> doesnt make sense as with --soft flag, 
+> 1. and without pathspec reset only moves branch pointer and does not manipulates index and working directory, 
+> 2. with pathspec reset doesn't even move branch to point to specified commit hash.  
+>  
+> `$ git reset --hard commit_hash -- file.ext`  
+> [_which is not allowed by git reset._]  
+>  
+> so,  
+> `$ git reset --mixed commit_hash -- file.ext`  
+> or,  
+> `$ git reset commit_hash file.ext`  
+> can update the file.ext in **INDEX ONLY**, identical to commit_hash's version.  
+>  
+> while,  
+> `$ git checkout commit_hash -- file.ext`  
+> can update the file.ext both in **INDEX and WORKING DIRECTORY**, identical to commit_hash's version  
+>  
+
 Restore file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
 > `$ git checkout <commit_hash> -- <file1.ext file2.ext>`  
 > `$ git checkout <branch> -- <file1.ext file2.ext>`  
 > Commit -> Index -> Working Directory.  
   
-Restore tracked but deleted and not staged folder from index to working tree  
+Restore tracked but deleted and the deletion not yet staged folder from index to working tree  
 > `$ git checkout -- path/to/folder`  
 
 Restore tracked but deleted and staged folder from HEAD to index and then to working tree  
@@ -534,16 +569,17 @@ Resolve merge conflict by checking out --ours or --theirs version of file that c
 > `$ git checkout . -p`  
 > press s to split a large chunk of change in smaller chunks while in this mode.  
   
-**like git reset, git checkout manipulates all three trees; working tree, index, repository**  
+$~$
   
 #### Reset
 
-> Note: git reset moves branch that HEAD points to a specified commit or HEAD (default)  
-> but with "pathspec" it does not move branch to point to a  specific commit  
-> Rather it updates index with content from the commit specified or HEAD.  
+> Note: git reset moves branch to a specified commit    
+> but with "pathspec" it does not move branch to a specific commit, rather it updates only index (in --mixed mode) with content from the commit specified or HEAD.  
 >  
 > it could also update working directory but "--hard" option is not permitted with pathspec/file/directories
   
+  $~$
+
 Remove file/directory from staging area using git reset  
 > `$ git reset --mixed HEAD -- file.txt`  
 > `$ git reset --mixed HEAD -- directory`  
@@ -570,31 +606,34 @@ Restore tracked and previously committed but deleted file
 Restore a file/directory from earlier version/commit/branch and directly stage to Index.  
 > `$ git reset --mixed <commit_hash> -- <pathspec/file/directory/.>`  
 > `$ git reset --mixed <branch_name> -- <pathspec/file/directory/.>`  
-> this command is a bit more powerful, proceed with caution.  
+> this command is powerful and working directory safe.  
   
 Remove chunk of change from staging area  
 > `$ git reset -p`  
   
 [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
+
+$~$
+
 #### Restore
   
-Restore specified paths in the working tree with some contents from a restore source. If a  
-path is tracked but does not exist in the restore source, it will be removed to match the  
-source.  
+$~$  
   
-The command can also be used to restore the content in the index with --staged, or restore  
-both the working tree and the index with --staged --worktree.  
+
+1. Restore specified paths in the working tree with contents from a restore source.  
+2. If a path is tracked but does not exist in the restore source, it will be removed to match the source.  
   
-By default, the restore sources for working tree and the index are the index and HEAD  
-respectively. --source could be used to specify a commit as the restore source.  
+3. The command can also be used to restore the content (tree) in the index with --staged, or restore both the working tree and the index with --worktree and --staged respectively.  
+  
+_By default, the restore sources for working tree and index are index and HEAD respectively, --source could be used to specify a commit as the restore source.  
 
 Restore file in the worktree from the Index or discard unstaged local changes    
 > `$ git restore file1 file2 *.extension .`  
 > `$ git restore .`
 > is same as,  
 > `$ git restore --worktree .`  
-> if --staged flag is not passed then it defaults to --worktree and use the Index as source.  
+> if --staged flag is not passed then it defaults to --worktree and use the Index as source. (Needs testing)  
   
 Restore file in the Index or unstage changes  
 > `$ git restore --staged file1 file2 *.extension .`  
@@ -612,7 +651,9 @@ Restore file/directory in the Index from a commit using provided commit_hash as 
 Restore file/directory in the Index and in the Worktree from a commit as source  
 > `$ git restore  --source <commit_hash> --staged --worktree directory/files`  
   
+$~$
 #### Rename/Move file/directory and stage them
+$~$
 
 Remove files and directory  
 > `$ git rm <path_to_file>` 
@@ -631,7 +672,8 @@ Remove file/directory from tracking list which is recently been ignored by GIT b
 
 Remove all untracked directory and files  
 > `$ git clean -df`  
-
+  
+$~$
 ## Git Rebase  
   
 Rebases one branch onto another.  
@@ -661,7 +703,8 @@ Generally when we create a new branch from another the new branch has all the up
    > so, if you've done any of those commands since the rebase you're trying to undo then you'll have to use the reflog.  
    > [source](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)  
 
-   
+$~$
+  
 #### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
@@ -720,6 +763,8 @@ If it detects that your current HEAD is an ancestor of the commit you're trying 
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
 
+$~$
+
 ## Interactive Rebase
 "Git interactive rebase" is different from "Git rebase". Interactive rebase allows user to change commit message (reword), delete commits (drop), combines commits into 1 (fixup/squash), reorder commits (By reordering them in Interactive window), commit splitting by providing an interactive window.
 
@@ -744,7 +789,9 @@ If you want to preserve branch topology and merge history you should pass in --n
     `$ git rebase --continue`  
     to transfer those new commits to original branch from the intermediate interactive branch.  
 >  
-  
+
+$~$
+
 ## Git Bisect
 git-bisect - Use binary search to find a commit that introduced a bug  
 
@@ -773,6 +820,7 @@ git-bisect - Use binary search to find a commit that introduced a bug
 > then git will automatically select the next commit hash.  
 > Finally after Git bisect reset you will be checked out to HEAD, the latest commit of the branch you were working on.  
   
+$~$
   
 ## Git Submodules
   
@@ -809,6 +857,7 @@ other projects easily, use submodules**
 > or to make it foolproof,  
 > `$ git submodule update --init --recursive`  
 
+$~$
 
 ## ReReRe Reuse Recorded Resolution
 
@@ -828,6 +877,8 @@ It is an automation feature that resolves merge conflicts automatically based on
 > `$ git rerere forget <recorded_resolution_name>`  
 > to forget specific resolution  
 >  
+
+$~$
 
 ## Tagging
 
@@ -873,7 +924,8 @@ To delete a tag from remote server,
 _Checking out Tags_
 If you want to view the versions of files a tag is pointing to, you can do a git checkout of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects:  
 > `$ git checkout <tag_name>`  
-  
+
+$~$  
 
 ## HEAD ~ vs ^ 
 
