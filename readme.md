@@ -571,7 +571,7 @@ Resolve merge conflict by checking out --ours or --theirs version of file that c
   
 &nbsp;  
   
-#### Reset
+## Reset
 
 > Note: git reset moves branch to a specified commit    
 > but with "pathspec" it does not move branch to a specific commit, rather it updates only index (in --mixed mode) with content from the commit specified or HEAD.  
@@ -616,7 +616,7 @@ Remove chunk of change from staging area
 
 &nbsp;  
 
-#### Restore
+## Restore
   
 &nbsp;    
   
@@ -652,7 +652,7 @@ Restore file/directory in the Index and in the Worktree from a commit as source
 > `$ git restore  --source <commit_hash> --staged --worktree directory/files`  
   
 &nbsp;  
-#### Rename/Move file/directory and stage them
+### Rename/Move file/directory and stage them
 &nbsp;  
 
 Remove files and directory  
@@ -705,7 +705,7 @@ Generally when we create a new branch from another the new branch has all the up
 
 &nbsp;  
   
-#### Rebase
+### Rebase
 This operation works by going to the common ancestor of the two branches (the one you’re on and the one you’re rebasing onto), getting the diff introduced by each commit of the branch you’re on, saving those diffs to temporary files, resetting the current branch to the same commit as the branch you are rebasing onto, and finally applying each change in turn. [Source](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 
 #### Best practice:
@@ -757,8 +757,10 @@ Then, you can fast-forward the base branch (master):
   
 **You can get the best of both worlds: rebase local changes before pushing to clean up your work, but never rebase anything that you’ve pushed somewhere.**  
   
-##### Fast Forward Merge  
-
+&nbsp;  
+  
+#### Fast Forward Merge  
+  
 If it detects that your current HEAD is an ancestor of the commit you're trying to merge. A fast-forward is when, instead of constructing a merge commit, git just moves your branch pointer to point at the incoming commit. This commonly occurs when doing a git pull without any local changes. [source](https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff)  
 
 If you want to preserve branch topology and merge history you should pass in --no-ff flag with merge command.  
