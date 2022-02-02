@@ -415,21 +415,24 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 >`$ git add <file_name>`  
 > `$ git commit --amend`  
 
-**Commit Message is also a part of the Commit, changing it changes history**
+**Commit Message is also a part of the Commit, changing it changes history** 
   
-#### Undo commit(s) locally by Git Reset  
-  
+&nbsp;
+## Git Reset  
+&nbsp;  
 _**Changes where or which commit branch is pointing to, does not directly Moves HEAD**_  
+  
+Undo commit(s) locally  
 _**there are 3 types of git reset**_  
   
-#### Soft reset  
+### Soft reset  
   
 > `$ git reset --soft <commit_hash>`  
 > no changes from previous commits are lost, changes remain in staging area  
 >  
 > 1. Moves branch-pointer to specified commit and stops.  
   
-#### Mixed/default reset  
+### Mixed/default reset  
   
 > `$ git reset <commit_hash>`  
 > `$ git reset --mixed <commit_hash>`  
@@ -438,7 +441,7 @@ _**there are 3 types of git reset**_
 > 1. Moves branch-pointer to specified commit and,  
 > 2. Updates the index/staging area with content from HEAD to make it identical to HEAD and stops.  
   
-#### Hard reset  
+### Hard reset  
   
 > `$ git reset --hard <commit_hash>`  
 > changes are discarded from tracked files and staging area but does not do anything to untracked files,  
@@ -448,7 +451,7 @@ _**there are 3 types of git reset**_
 > 2. Updates the index/staging area with content from HEAD and,  
 > 3. Copies all content from Index and overwrites Working Directory with them and stops.  
 
-**GIT Reset Defaults**
+_GIT Reset Defaults_
 > `$ git reset`  
 > is same as,  
 > `$ git reset --mixed HEAD`  
@@ -490,7 +493,7 @@ _**there are 3 types of git reset**_
 
 **Restore file and directory using,**  
 
-#### Checkout
+### Checkout
 
 > Switching branches or cloning goes through a similar process.  
 > When you checkout a branch, 
@@ -531,7 +534,10 @@ Update file.ext in index and then working tree with the same version as HEAD.
 > HEAD -> Index -> Working Directory.  
 >  
 >  
-GIT RESET vs CHECKOUT _when used with -- pathspec_  
+  
+&nbsp;  
+  
+**GIT RESET vs CHECKOUT _when used with -- pathspec_**  
 > `$ git reset --soft commit_hash -- file.ext`  
 > doesnt make sense as with --soft flag, 
 > 1. and without pathspec reset only moves branch pointer and does not manipulates index and working directory, 
@@ -572,7 +578,7 @@ Resolve merge conflict by checking out --ours or --theirs version of file that c
   
 &nbsp;  
   
-## Reset
+### Reset
 
 > Note: git reset moves branch to a specified commit    
 > but with "pathspec" it does not move branch to a specific commit, rather it updates only index (in --mixed mode) with content from the commit specified or HEAD.  
