@@ -259,9 +259,8 @@ merges master with feature-branch and currently checked out branch.
 &nbsp;  
 ## Staging, Committing and Pushing
 &nbsp;  
-### Tracking and Staging
+### Tracking and Staging  
 
-&nbsp;  
 > **show modified flies and newly created files or directory**  
 > `$ git status`  
 > `$ git status -v -v`  
@@ -271,7 +270,7 @@ merges master with feature-branch and currently checked out branch.
 > `$ git status -s`  
   
 &nbsp;  
-> **add files to staging area**
+> **add files to staging area**  
 > `$ git add -A`  
 > or  
 > `$ git add --all`  
@@ -399,7 +398,6 @@ Shows difference in color, e.g., added changes in green and removed changes in r
     
 ### Committing to local branch
 
-&nbsp;  
 > **Commit staged changes**  
 >`$ git commit -m "commit message"`  
 
@@ -578,8 +576,10 @@ _GIT Reset Defaults_
   
 &nbsp;  
     
-### Index, Working Directory restoration with checkout, reset and restore  
-  
+### Index, Working Directory restoration with checkout, reset and restore 
+
+&nbsp;  
+
 ### Checkout
 
 > Switching branches or cloning goes through a similar process.  
@@ -626,28 +626,6 @@ _GIT Reset Defaults_
 > HEAD -> Index -> Working Directory.  
 >  
   
-&nbsp;  
-  
-**GIT RESET vs CHECKOUT _when used with -- pathspec_**  
-> `$ git reset --soft commit_hash -- file.ext`  
-> doesnt make sense as with --soft flag, 
-> 1. and without pathspec reset only moves branch pointer and does not manipulates index and working directory, 
-> 2. with pathspec reset doesn't even move branch to point to specified commit hash.  
->  
-> `$ git reset --hard commit_hash -- file.ext`  
-> [_which is not allowed by git reset._]  
->  
-> so,  
-> `$ git reset --mixed commit_hash -- file.ext`  
-> or,  
-> `$ git reset commit_hash file.ext`  
-> can update the file.ext in **INDEX ONLY**, identical to commit_hash's version.  
->  
-> while,  
-> `$ git checkout commit_hash -- file.ext`  
-> can update the file.ext both in **INDEX and WORKING DIRECTORY**, identical to commit_hash's version  
->  
-
 &nbsp;  
 > Restore file1.ext, file2.ext in index and then working tree with the same version as commit_hash.  
 > `$ git checkout <commit_hash> -- <file1.ext file2.ext>`  
@@ -720,6 +698,28 @@ _GIT Reset Defaults_
 
 &nbsp;  
 [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
+
+&nbsp;  
+  
+**GIT RESET vs CHECKOUT _when used with -- pathspec_**  
+> `$ git reset --soft commit_hash -- file.ext`  
+> doesnt make sense as with --soft flag,  
+> 1. and without pathspec reset only moves branch pointer and does not manipulates index and working directory, 
+> 2. with pathspec reset doesn't even move branch to point to specified commit hash.  
+>  
+> `$ git reset --hard commit_hash -- file.ext`  
+> [_which is not allowed by git reset._]  
+>  
+> so,  
+> `$ git reset --mixed commit_hash -- file.ext`  
+> or,  
+> `$ git reset commit_hash file.ext`  
+> can update the file.ext in **INDEX ONLY**, identical to commit_hash's version.  
+>  
+> while,  
+> `$ git checkout commit_hash -- file.ext`  
+> can update the file.ext both in **INDEX and WORKING DIRECTORY**, identical to commit_hash's version  
+>  
 
 
 &nbsp;  
