@@ -222,6 +222,7 @@ From remote `$ git push origin --delete <branch_name_1> <branch_name_2> <branch_
 **show modified flies and newly created files or directory**  
 > `$ git status`  
 > `$ git status -v -v`  
+> `$ git status -vv`  
 > or short status by,  
 > `$ git status -s`  
   
@@ -511,13 +512,13 @@ _**there are 3 types of git reset**_
 Undo unstaged changes that has been made to a < file >  
 > `$ git checkout a <file>`  
 > `$ git checkout -- file1 file2`  
->  
->  (Needs testing)  
+>    
 > Unlike reset it doesn't default the < tree-ish > parameter to HEAD rather defaults to --staged iplicitly  
 > Meaning, overwrites specified files in working tree with content from the respective files in index.  
   
 Make Working Directory identical to Index.  
 > `$ git checkout -- .`  
+> Index -> Working Directory.(tested)  
   
 Make Index and working tree identical to HEAD  
 > `$ git checkout HEAD -- .`  
@@ -626,14 +627,14 @@ Remove chunk of change from staging area
   
 3. The command can also be used to restore the content (tree) in the index with --staged, or restore both the working tree and the index with --worktree and --staged respectively.  
   
-_By default, the restore sources for working tree and index are index and HEAD respectively, --source could be used to specify a commit as the restore source.  
+_**By default, the restore sources for working tree and index are index and HEAD respectively, --source could be used to specify a commit as the restore source.**_  
 
 Restore file in the worktree from the Index or discard unstaged local changes    
 > `$ git restore file1 file2 *.extension .`  
 > `$ git restore .`
 > is same as,  
 > `$ git restore --worktree .`  
-> if --staged flag is not passed then it defaults to --worktree and use the Index as source. (Needs testing)  
+> if --staged flag is not passed then it defaults to --worktree and use the Index as source.(Tested)  
   
 Restore file in the Index or unstage changes  
 > `$ git restore --staged file1 file2 *.extension .`  
