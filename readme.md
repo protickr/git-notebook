@@ -483,11 +483,8 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 ## How to fix mistakes
 
 &nbsp;  
-
-### Repository restoration  
 #### Modify previous commit, --amend  
 
-&nbsp; 
 > Change previous commit's commit message  
 > `$ git commit --amend -m "changed message"`  
 **Commit Message is also a part of the Commit, changing it changes history** 
@@ -499,10 +496,9 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 >`$ git add <file_name>`  
 > `$ git commit --amend`  
 
-
-  
+&nbsp; 
+### Repository restoration  
 &nbsp;
-  
 ## Git Reset    
   
 _**Undo commit(s) locally; changes where or which commit branch is pointing to, does not directly Moves HEAD, there are 3 types of git reset**_  
