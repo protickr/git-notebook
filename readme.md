@@ -598,7 +598,7 @@ _GIT Reset Defaults_
 &nbsp;  
 
 > Undo unstaged changes that has been made to a < file >  
-> `$ git checkout a <file>`  
+> `$ git checkout <file>`  
 > `$ git checkout -- file1 file2`  
 >    
 > Unlike reset it doesn't default the < tree-ish > parameter to HEAD rather defaults to --staged iplicitly  
@@ -699,9 +699,11 @@ _GIT Reset Defaults_
   
 **GIT RESET vs CHECKOUT _when used with -- pathspec_**  
 > `$ git reset --soft commit_hash -- file.ext`  
-> doesnt make sense as with --soft flag,  
-> 1. and without pathspec reset only moves branch pointer and does not manipulates index and working directory, 
-> 2. with pathspec reset doesn't even move branch to point to specified commit hash.  
+> doesn't make sense, as $ git reset with --soft flag and
+>  
+> 1. Without pathspec, it only moves branch pointer and does not manipulates index and working directory,
+>   
+> 2. With pathspec reset doesn't even move branch to point to specified commit hash.  
 >  
 > `$ git reset --hard commit_hash -- file.ext`  
 > [_which is not allowed by git reset._]  
@@ -773,7 +775,7 @@ _**By default, the restore sources for working tree and index are index and HEAD
 > `$ git mv <path_to/source_file_name> <path_to/target_file_name>`  
 
 &nbsp;  
-> Remove file/directory from tracking list which is recently been ignored by GIT but tracked earlier  
+> Remove file/directory from tracking list which is recently been added to .gitignore but was being tracked by git.  
 >`$ git rm --cached file.txt`  
 >`$ git rm --cached -r bin/`  
 
