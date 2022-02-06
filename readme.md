@@ -841,8 +841,8 @@ This operation works by going to the common ancestor of the two branches (the on
    > `$ git push --force origin feature-branch`  
    > or  
    > `$ git push --force-with-lease`  
-   > It is a safer option that checks for any incoming changes from remote which conflicts with local that you are not  
-   > aware of. Does not overwrite teammates code.  
+   > It is a safer option that checks for any incoming changes from remote which conflicts with local that you are not aware of.  
+   > Does not overwrite teammates code.  
 
 &nbsp;  
 #### Advanced Rebasing:
