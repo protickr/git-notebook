@@ -936,7 +936,7 @@ git-bisect - Use binary search to find a commit that introduced a bug
 > `$ git bisect visualize`  
 > where am I at, at this moment while bisecting    
   
-> In this point we will need a testing script that will check the existence of files and such   
+> In this point we will need a testing script that will check the existence of files and such.   
 > the testing script should output 0 if intended functionality is working properly or 1 if not.  
 > _Also, the script should not be source-controlled i.e., not tracked by Git._  
   
