@@ -1091,6 +1091,30 @@ HEAD^^ : 2 commits older than HEAD
 > first parent is the branch into which we merged,  
 > second parent is the branch we merged.  
 
+&nbsp;  
+## git filter-branch and filter-repo  
+> Removing a File from Every Commit  
+> `$ git filter-branch --tree-filter 'rm -f passwords.txt' HEAD`  
+> To run filter-branch on all your branches, you can pass --all to the command.  
+
+&nbsp;
+> Making a Subdirectory the New Root  
+> `$ git filter-branch --subdirectory-filter subdirectory_name HEAD`  
+
+&nbsp;  
+> Changing Email Addresses Globally  
+> ```$ git filter-branch --commit-filter '
+>        if [ "$GIT_AUTHOR_EMAIL" = "schacon@localhost" ];  
+>        then  
+>                GIT_AUTHOR_NAME="Scott Chacon";  
+>                GIT_AUTHOR_EMAIL="schacon@example.com";  
+>                git commit-tree "$@";  
+>        else  
+>                git commit-tree "$@";  
+>        fi' HEAD`  
+>```  
+>  &nbsp;
+
 [Index][index]
   
 [index]: index.md
