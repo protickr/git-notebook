@@ -98,8 +98,8 @@ _mergetool_
 (or set application path in environment variable and skip previous line)  
 > `$ git config --global mergetool.meld.cmd 'meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"'`  
 > `$ git config --global mergetool.prompt true`  
-If a conflict occurs during a merge it can be resolved graphically by,
-> `$ git mergetool`
+If a conflict occurs during a merge it can be resolved graphically by,  
+> `$ git mergetool`  
 
 &nbsp;  
 > _**Colorful informative git**_  
@@ -198,7 +198,7 @@ or,
 &nbsp;  
 > *Show branch tree*  
 > `$ git log --graph`  
-> `git log --graph --pretty=oneline --abbrev-commit`  
+> `$ git log --graph --pretty=oneline --abbrev-commit`  
 
 &nbsp;  
 > *Set upstream branch*  
