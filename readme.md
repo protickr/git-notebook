@@ -949,8 +949,8 @@ git-bisect - Use binary search to find a commit that introduced a bug
 > What git bisect really does is, checkout commit hashes in a binary search fashion and waits for your instruction.  
 > if you do not want to use a test script then you should mark commit as good or bad depending on your manual testing.  
 
-> As Git will checkout a commit hash, you can run and test the project as if you were in a branch. If it's behaviour is  
-> okay then mark it good or bad otherwise.  
+> As Git will checkout a commit hash, you can run and test the project as if you were in a branch.  
+> If it's behaviour is okay then mark it good or bad otherwise.  
 > `$ git bisect good`  
 > `$ git bisect bad`  
 > then git will automatically select the next commit hash.  
