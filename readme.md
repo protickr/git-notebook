@@ -501,7 +501,7 @@ Shows difference in color, e.g., added changes in green and removed changes in r
 &nbsp;
 ## Git Reset    
   
-_**Undo commit(s) locally; changes where or which commit branch is pointing to, does not directly Moves HEAD, there are 3 types of git reset**_  
+_**Undo commit(s) locally; changes where or which commit, branch is pointing to, does not directly Moves HEAD, there are 3 types of git reset**_  
   
 &nbsp;
 ### Soft reset  
