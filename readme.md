@@ -694,20 +694,18 @@ _GIT Reset Defaults_
 
 #### reset v/s checkout summary
 
-&nbsp;  
-> reset  
+reset  
 > Undo commits  
 > `$ git reset <commit_hash>`  
 > unstage
 > `$ git reset <file_name>`  
 
-&nbsp;  
-> checkout  
+checkout  
 > change branch
 > `$ git checkout <commit_hash>`  
 > copy file contents from index/staging area to working directory  
 > `$ git checkout <file_name>`  
-> copy file from other commits into staging/index and working directory  
+> copy file contents from other commits into staging/index and working directory  
 > `$ git checkout <commit_hash> -- <file_name>`  
 
 
