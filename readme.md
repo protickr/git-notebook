@@ -697,11 +697,11 @@ _GIT Reset Defaults_
 reset  
 > Undo commits  
 > `$ git reset <commit_hash>`  
-> unstage
+> unstage  
 > `$ git reset <file_name>`  
 
 checkout  
-> change branch
+> change branch  
 > `$ git checkout <commit_hash>`  
 > copy file contents from index/staging area to working directory  
 > `$ git checkout <file_name>`  
